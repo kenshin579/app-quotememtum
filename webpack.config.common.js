@@ -88,7 +88,7 @@ module.exports = {
     ],
     alias: {
       Src: path.resolve(__dirname, './src/'),
-      Scripts: path.resolve(__dirname, './src/scripts/'),
+      Utils: path.resolve(__dirname, './src/utils/'),
       Components: path.resolve(__dirname, './src/components'),
       Settings: path.resolve(__dirname, './src/components/settings'),
       Events: path.resolve(__dirname, './src/scripts/events'),
