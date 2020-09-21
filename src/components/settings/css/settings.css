@@ -1,0 +1,99 @@
+.icon-top-left {
+  width: 18px;
+  height: 18px;
+}
+
+.settings-modal {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 650px;
+  height: 450px;
+  overflow: auto;
+   background-color: rgba(15, 15, 15, 0.99);  
+  margin-top: 50px;
+  margin-left: 20px;
+  border: 1px solid #888;
+  text-shadow: none;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 5px;
+  flex-basis: 5%;
+}
+
+.close:hover, .close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.settings-panes {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.settings-side-menu {
+  flex-basis: 12%;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 40px;
+  border-right: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.settings-side-menu ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.settings-side-menu li {
+  font-size: 16px;
+  cursor: pointer;  
+  list-style-type: none;
+  margin-bottom: 20px;
+  color: lightgray;  
+}
+
+.settings-side-menu #aboutPane {
+  font-size: 12px;
+  opacity: .4;
+}
+
+.settings-side-menu li:hover, .settings-side-menu .menu-active {
+  color: white;
+}
+
+.settings-main-pane {
+  padding: 10px;
+  flex-basis: 88%
+}
+
+.settings-main-pane h1 {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+  .settings-modal {
+    width: 95%;
+    height: 75%;
+    margin-left: 2.5%;
+  }
+  .settings-side-menu{
+    padding: 20px 10px;
+    flex-basis: 30%;
+  }
+  .settings-main-pane {
+    flex-basis: 60%;
+  }
+  .quoteListItem-container {
+    width: 80%;
+  }
+}
