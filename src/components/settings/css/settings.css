@@ -1,6 +1,14 @@
+/*
 .icon-top-left {
   width: 18px;
   height: 18px;
+}
+*/
+
+.icon-top-right {
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(1px 1px 1px grey);
 }
 
 .settings-modal {
