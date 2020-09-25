@@ -1,7 +1,6 @@
 import React from 'react';
 import SettingsIcon from 'Settings/SettingsIcon.jsx';
 import SettingsModal from 'Settings/SettingsModal.jsx';
-import TopLeft from 'Components/TopLeft.jsx';
 import Wallpaper from 'Components/Wallpaper.jsx';
 import WallpaperInfo from 'Components/WallpaperInfo.jsx';
 import Center from 'Components/center/Center.jsx';
@@ -42,27 +41,6 @@ class App extends React.Component {
             wpiToggle: 'Pic Info',
             showText: false,
         };
-    }
-
-    addInput(e) {
-        if (e.key === 'Enter') {
-            addToLocalStorage('username', this.state.usernameStatus.username);
-            this.setState({
-                usernameStatus: {
-                    existName: true,
-                },
-            });
-        }
-    }
-
-    updateInputValue(e) {
-        this.setState({
-            usernameStatus: {
-                username: e.target.value,
-                existName: false,
-                askName: 'Hello, what\'s your name?',
-            },
-        });
     }
 
     toggleSettingsModal() {
@@ -228,9 +206,8 @@ class App extends React.Component {
                 }
                 {this.state.showText &&
                 <div className="row top-row">
-                    <div className="top-left-flex">
+                    <div>
                         <SettingsIcon toggleSettingsModal={this.toggleSettingsModal.bind(this)} />
-                        <TopLeft showFeatures={this.state.showFeatures} />
                     </div>
                 </div>
                 }

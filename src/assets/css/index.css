@@ -24,6 +24,11 @@ main {
 
 .top-row, .bottom-row {
   margin: 10px 20px;
+  justify-content: flex-end;
+}
+
+.bottom-row {
+  margin: 10px 20px;
   justify-content: space-between;
 }
 
