@@ -17,8 +17,8 @@ class Quote extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.state !== nextProps.quoteText) {
-      const currentQuote = nextProps.quoteText;
+    if (this.state !== nextProps.quote) {
+      const currentQuote = nextProps.quote;
       this.setState({
         currentQuote,
       });
@@ -50,20 +50,19 @@ class Quote extends Component {
 
   componentDidMount() {
     const URL = 'http://quote.advenoh.pe.kr/api/quotes/random';
-    if (localStorageKeyExists('quote') && !this.checkFrequency()) {
-      const currentQuote = getFromLocalStorage('quote');
-      this.setState({
-        currentQuote,
-      });
-      this.props.updateQuoteInfo(currentQuote);
+      if (localStorageKeyExists('quote') && !this.checkFrequency()) {
+        const currentQuote = getFromLocalStorage('quote');
+        this.setState({
+          currentQuote,
+        });
+        this.props.updateQuoteInfo(currentQuote);
     } else {
       axios.get(URL)
         .then((response) => {
-          const quoteId = getCurrentTime();
           const currentQuote = {
             quoteText: response.data.quoteText,
             authorName: response.data.authorName,
-            id: quoteId
+            id: response.data.quoteId
           };
           this.setState({
             currentQuote,
