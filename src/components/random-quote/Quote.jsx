@@ -9,16 +9,16 @@ class Quote extends Component {
     super(props);
     this.state = {
       currentQuote: {
-        quote: '',
-        author: '',
+        quoteText: '',
+        authorName: '',
         id: ''
       },
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.state !== nextProps.quote) {
-      const currentQuote = nextProps.quote;
+    if (this.state !== nextProps.quoteText) {
+      const currentQuote = nextProps.quoteText;
       this.setState({
         currentQuote,
       });
@@ -45,13 +45,14 @@ class Quote extends Component {
         quoteFrequencyMili = 21600000;
         break;
     }
-    return timeInterval >= quoteFrequencyMili;
+    // return timeInterval >= quoteFrequencyMili;
+      return true;
   }
 
   componentDidMount() {
-    const URL = 'https://long-bongo.glitch.me/api.quotes/random';
-    const overTime = this.checkFrequency();
-    if (localStorageKeyExists('quote') && !overTime) {
+    // const URL = 'https://long-bongo.glitch.me/api.quotes/random';
+    const URL = 'http://quote.advenoh.pe.kr/api/quotes/random';
+    if (localStorageKeyExists('quote') && !this.checkFrequency()) {
       const currentQuote = getFromLocalStorage('quote');
       this.setState({
         currentQuote,
@@ -62,8 +63,8 @@ class Quote extends Component {
         .then((response) => {
           const quoteId = getCurrentTime();
           const currentQuote = {
-            quote: response.data.quote,
-            author: response.data.author,
+            quoteText: response.data.quoteText,
+              authorName: response.data.authorName,
             id: quoteId
           };
           this.setState({
@@ -83,8 +84,8 @@ class Quote extends Component {
         <div className='author-container'>
           <div>{this.state.currentQuote.author}</div>
           <TwitterLink
-            quote={this.props.quote.quote}
-            author={this.props.quote.author}
+            quoteText={this.props.quote.quoteText}
+            authorName={this.props.quote.authorName}
           />
         </div>
       </div>
