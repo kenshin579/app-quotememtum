@@ -45,12 +45,10 @@ class Quote extends Component {
         quoteFrequencyMili = 21600000;
         break;
     }
-    // return timeInterval >= quoteFrequencyMili;
-      return true;
+    return timeInterval >= quoteFrequencyMili;
   }
 
   componentDidMount() {
-    // const URL = 'https://long-bongo.glitch.me/api.quotes/random';
     const URL = 'http://quote.advenoh.pe.kr/api/quotes/random';
     if (localStorageKeyExists('quote') && !this.checkFrequency()) {
       const currentQuote = getFromLocalStorage('quote');
