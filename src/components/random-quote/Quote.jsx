@@ -64,7 +64,7 @@ class Quote extends Component {
           const quoteId = getCurrentTime();
           const currentQuote = {
             quoteText: response.data.quoteText,
-              authorName: response.data.authorName,
+            authorName: response.data.authorName,
             id: quoteId
           };
           this.setState({
@@ -80,9 +80,9 @@ class Quote extends Component {
   render() {
     return (
       <div className={this.props.quoteClassName}>
-        <div>{this.state.currentQuote.quote}</div>
+        <div>{this.state.currentQuote.quoteText}</div>
         <div className='author-container'>
-          <div>{this.state.currentQuote.author}</div>
+          <div>{this.state.currentQuote.authorName}</div>
           <TwitterLink
             quoteText={this.props.quote.quoteText}
             authorName={this.props.quote.authorName}
