@@ -18,18 +18,11 @@ main {
 }
 
 .row {
-  background: darkred;
   display: flex;
   z-index: 10;
 }
 
 .top-row {
-  /*background: yellow;*/
-  margin: 10px 20px;
-  justify-content: flex-end;
-}
-
-.bottom-row {
   margin: 10px 20px;
   justify-content: flex-end;
 }
@@ -49,7 +42,6 @@ main {
 }
 
 .middle-row {
-  background: #0099E0;
   justify-content: center;
   align-items: center;
 }

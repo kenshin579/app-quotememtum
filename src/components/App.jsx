@@ -6,6 +6,7 @@ import WallpaperInfo from 'Components/WallpaperInfo.jsx';
 import Clock from 'Components/clock/Clock.jsx';
 import Quote from 'Components/random-quote/Quote.jsx';
 import 'Stylesheets/index.css';
+import 'Stylesheets/top-right.css';
 import {
     initializeLocalStorage,
     localStorageKeyExists,
@@ -75,51 +76,8 @@ class App extends React.Component {
         });
     }
 
-    displayFavQuote(currentDisplayedQuote, selectedQuoteId) {
-        if (currentDisplayedQuote.id !== selectedQuoteId) {
-            const newDisplayQuote = this.state.arrLikedQuotes.find(quote => quote.id === selectedQuoteId);
-            const currentQuote = newDisplayQuote;
-            addToLocalStorage('quote', newDisplayQuote);
-            this.setState({
-                currentQuote,
-            });
-        }
-    }
-
-    displayFavWallpaper(currentDisplayedWallpaper, selectedWallpaperId) {
-        if (currentDisplayedWallpaper.id !== selectedWallpaperId) {
-            const wallpaperData = this.state.arrLikedWallpapers.find(wallpaper => wallpaper.id === selectedWallpaperId);
-            addToLocalStorage('wallpaper', wallpaperData);
-            this.setState({
-                wallpaperData,
-            });
-        }
-    }
-
     toggleLike(likeStatus, objId, type) {
-        if (type === 'quote') {
-            const currentQuote = updateLocalStorageObjProp('quote', 'liked', likeStatus);
-            if (currentQuote.id === objId) {
-                this.setState({currentQuote}, () => {
-                    if (likeStatus) {
-                        const arrLikedQuotes = addToLocalStorageArray('arrLikedQuotes', this.state.currentQuote);
-                        this.setState({
-                            arrLikedQuotes,
-                        });
-                    } else {
-                        const arrLikedQuotes = removeFromLocalStorageArray('arrLikedQuotes', 'id', objId);
-                        this.setState({
-                            arrLikedQuotes,
-                        });
-                    }
-                });
-            } else {
-                const arrLikedQuotes = removeFromLocalStorageArray('arrLikedQuotes', 'id', objId);
-                this.setState({
-                    arrLikedQuotes,
-                });
-            }
-        } else if (type === 'wallpaper') {
+        if (type === 'wallpaper') {
             const wallpaperData = updateLocalStorageObjProp('wallpaper', 'wallpaperLiked', likeStatus);
             if (wallpaperData.id === objId) {
                 this.setState({wallpaperData}, () => {
@@ -157,29 +115,6 @@ class App extends React.Component {
         });
     }
 
-    toggleShow(e) {
-        const target = e.target.id.slice(0, -7).concat('ClassName');
-        if (target === 'quoteClassName') {
-            const newState = this.state.responsiveQuote === 'quote-container hide700' ? 'quote-container' : 'quote-container hide700';
-            const newToggleState = this.state.quoteToggle === 'Quote' ? 'X' : 'Quote';
-            this.setState({
-                responsiveQuote: newState,
-                quoteToggle: newToggleState,
-                responsiveWPI: 'wallpaper-info-container hide700',
-                wpiToggle: 'Pic Info',
-            });
-        } else {
-            const newState = this.state.responsiveWPI === 'wallpaper-info-container hide700' ? 'wallpaper-info-container' : 'wallpaper-info-container hide700';
-            const newToggleState = this.state.wpiToggle === 'Pic Info' ? 'X' : 'Pic Info';
-            this.setState({
-                responsiveWPI: newState,
-                wpiToggle: newToggleState,
-                responsiveQuote: 'quote-container hide700',
-                quoteToggle: 'Quote',
-            });
-        }
-    }
-
     render() {
         return (
             <main id="main">
@@ -195,18 +130,13 @@ class App extends React.Component {
                     showFeatures={this.state.showFeatures}
                     options={this.state.options}
                     changeOption={e => this.changeOption(e)}
-                    toggleLike={this.toggleLike.bind(this)}
-                    displayFavQuote={this.displayFavQuote.bind(this)}
-                    displayFavWallpaper={this.displayFavWallpaper.bind(this)}
                     quote={this.state.currentQuote}
-                    arrLikedQuotes={this.state.arrLikedQuotes}
                     wallpaperData={this.state.wallpaperData}
-                    arrLikedWallpapers={this.state.arrLikedWallpapers}
                 />
                 }
                 {this.state.showText &&
                 <div className="row top-row">
-                    <div>
+                    <div className="top-right-flex">
                         <Clock
                             showFocus={this.state.showFeatures.showFocus}
                             clockFormat={this.state.options.clockFormat} />
@@ -220,7 +150,6 @@ class App extends React.Component {
                     <Quote
                         quoteClassName={this.state.responsiveQuote}
                         updateQuoteInfo={this.updateQuoteInfo.bind(this)}
-                        toggleLike={this.toggleLike.bind(this)}
                         quote={this.state.currentQuote}
                         quoteFrequency={this.state.options.quoteFrequency}
                     />
@@ -229,10 +158,6 @@ class App extends React.Component {
                 }
                 {this.state.showText &&
                 <div className="row bottom-row">
-                    {/*<div className="toggle-div show700">*/}
-                        {/*<div id="wallpaperInfo-toggle" onClick={this.toggleShow.bind(this)}>{this.state.wpiToggle}</div>*/}
-                        {/*<div id="quote-toggle" onClick={this.toggleShow.bind(this)}>{this.state.quoteToggle}</div>*/}
-                    {/*</div>*/}
                     {this.state.wallpaperData &&
                     <WallpaperInfo
                         wallpaperInfoClassName={this.state.responsiveWPI}
