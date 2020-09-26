@@ -3,7 +3,7 @@ import SettingsIcon from 'Settings/SettingsIcon.jsx';
 import SettingsModal from 'Settings/SettingsModal.jsx';
 import Wallpaper from 'Components/Wallpaper.jsx';
 import WallpaperInfo from 'Components/WallpaperInfo.jsx';
-import Center from 'Components/center/Center.jsx';
+import Clock from 'Components/clock/Clock.jsx';
 import Quote from 'Components/random-quote/Quote.jsx';
 import 'Stylesheets/index.css';
 import {
@@ -207,30 +207,15 @@ class App extends React.Component {
                 {this.state.showText &&
                 <div className="row top-row">
                     <div>
+                        <Clock
+                            showFocus={this.state.showFeatures.showFocus}
+                            clockFormat={this.state.options.clockFormat} />
                         <SettingsIcon toggleSettingsModal={this.toggleSettingsModal.bind(this)} />
                     </div>
                 </div>
                 }
                 {this.state.showText &&
                 <div className="row middle-row">
-                    <Center
-                        showFocus={this.state.showFeatures.showFocus}
-                        clockFormat={this.state.options.clockFormat} />
-                </div>
-                }
-                {this.state.showText &&
-                <div className="row bottom-row">
-                    <div className="toggle-div show700">
-                        <div id="wallpaperInfo-toggle" onClick={this.toggleShow.bind(this)}>{this.state.wpiToggle}</div>
-                        <div id="quote-toggle" onClick={this.toggleShow.bind(this)}>{this.state.quoteToggle}</div>
-                    </div>
-                    {this.state.wallpaperData &&
-                    <WallpaperInfo
-                        wallpaperInfoClassName={this.state.responsiveWPI}
-                        wallpaperData={this.state.wallpaperData}
-                        toggleLike={this.toggleLike.bind(this)}
-                    />
-                    }
                     {this.state.showFeatures.showQuote &&
                     <Quote
                         quoteClassName={this.state.responsiveQuote}
@@ -238,6 +223,21 @@ class App extends React.Component {
                         toggleLike={this.toggleLike.bind(this)}
                         quote={this.state.currentQuote}
                         quoteFrequency={this.state.options.quoteFrequency}
+                    />
+                    }
+                </div>
+                }
+                {this.state.showText &&
+                <div className="row bottom-row">
+                    {/*<div className="toggle-div show700">*/}
+                        {/*<div id="wallpaperInfo-toggle" onClick={this.toggleShow.bind(this)}>{this.state.wpiToggle}</div>*/}
+                        {/*<div id="quote-toggle" onClick={this.toggleShow.bind(this)}>{this.state.quoteToggle}</div>*/}
+                    {/*</div>*/}
+                    {this.state.wallpaperData &&
+                    <WallpaperInfo
+                        wallpaperInfoClassName={this.state.responsiveWPI}
+                        wallpaperData={this.state.wallpaperData}
+                        toggleLike={this.toggleLike.bind(this)}
                     />
                     }
                 </div>

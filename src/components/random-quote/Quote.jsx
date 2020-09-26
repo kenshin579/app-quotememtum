@@ -11,8 +11,7 @@ class Quote extends Component {
       currentQuote: {
         quote: '',
         author: '',
-        id: '',
-        liked: '',
+        id: ''
       },
     };
   }
@@ -65,9 +64,7 @@ class Quote extends Component {
           const currentQuote = {
             quote: response.data.quote,
             author: response.data.author,
-            id: quoteId,
-            liked: localStorageKeyExists('quote') &&
-                objIsInArray(getFromLocalStorage('arrLikedQuotes'), 'id', quoteId),
+            id: quoteId
           };
           this.setState({
             currentQuote,
