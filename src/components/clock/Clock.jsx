@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import 'Stylesheets/center.css';
+import 'Stylesheets/clock.css';
 
-class Center extends Component {
+class Clock extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,11 +37,11 @@ class Center extends Component {
   render() {
     const timeArr = this.state.time.split(' ');
     return (
-      <div id="center">
+      <div className="clock">
         <div className="time">{timeArr[0]}{timeArr[1] && <span className="ampm">{timeArr[1]}</span>}</div>
       </div>
     );
   }
 }
 
-export default Center;
+export default Clock;
