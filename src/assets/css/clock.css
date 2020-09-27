@@ -17,15 +17,15 @@
   font-weight: 500;
 }
 
-.congrats-container {
-  height: 25px;
-  font-size: 15px;
-  margin: 5px 4px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
+/*.congrats-container {*/
+  /*height: 25px;*/
+  /*font-size: 15px;*/
+  /*margin: 5px 4px;*/
+  /*display: flex;*/
+  /*flex-direction: row;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+/*}*/
 
 @keyframes exit-congrat {
   0% {
