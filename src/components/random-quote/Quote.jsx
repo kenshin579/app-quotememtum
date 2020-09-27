@@ -80,11 +80,11 @@ class Quote extends Component {
         <div>{this.state.currentQuote.quoteText}</div>
         <div className='author-container'>
           <div>{this.state.currentQuote.authorName}</div>
-          <TwitterLink
+        </div>
+        <TwitterLink
             quoteText={this.props.quote.quoteText}
             authorName={this.props.quote.authorName}
-          />
-        </div>
+        />
       </div>
     );
   }
