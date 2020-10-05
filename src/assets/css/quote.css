@@ -13,7 +13,7 @@
   align-items: center;
   text-align: center;
   margin: 0px 35px;
-    /*word-wrap: break-word;*/
+  word-break: keep-all;
 }
 
 .author-container {
