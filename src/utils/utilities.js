@@ -88,15 +88,11 @@ export const initializeLocalStorage = () => {
     addToLocalStorage('userSettings', {
         showFeatures: {
             showChromeTab: true,
-            showSearch: true,
-            showWeather: true,
             showFocus: true,
             showQuote: true,
-            showTodo: true,
             showApps: true,
         },
         options: {
-            tempScale: 'C',
             clockFormat: '24hour',
             quoteFrequency: '6hour',
             wallpaperFrequency: '6hour',
