@@ -37,7 +37,6 @@ class App extends React.Component {
             showFeatures: userSettings.showFeatures,
             options: userSettings.options,
             responsiveWPI: 'wallpaper-info-container',
-            responsiveQuote: 'quote-container',
             quoteToggle: 'Quote',
             wpiToggle: 'Pic Info',
             showText: false,
@@ -148,7 +147,6 @@ class App extends React.Component {
                 && <div className="row middle-row">
                     {this.state.showFeatures.showQuote
                     && <Quote
-                        quoteClassName={this.state.responsiveQuote}
                         updateQuoteInfo={this.updateQuoteInfo.bind(this)}
                         quote={this.state.currentQuote}
                         quoteFrequency={this.state.options.quoteFrequency}

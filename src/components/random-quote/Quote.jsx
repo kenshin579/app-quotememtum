@@ -76,7 +76,7 @@ class Quote extends Component {
 
   render() {
     return (
-      <div className={this.props.quoteClassName}>
+      <div className="quote-container">
         <div>{this.state.currentQuote.quoteText}</div>
         <div className='author-container'>
           <div>{this.state.currentQuote.authorName}</div>
