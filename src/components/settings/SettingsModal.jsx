@@ -20,8 +20,6 @@ class SettingsModal extends React.Component {
     const targetPane = e.target.id;
     this.setState({
       generalSettings: false,
-      backgroundSettings: false,
-      quotesSettings: false,
       aboutPane: false,
     }, () => {
       this.setState({
@@ -42,8 +40,8 @@ class SettingsModal extends React.Component {
         <div className="settings-panes">
           <div className="settings-side-menu">
             <ul>
-              <li id="generalSettings" className={this.isActive('generalSettings')} onClick={this.changeTab.bind(this)}>General</li>
-              <li id="aboutPane" className={this.isActive('aboutPane')} onClick={this.changeTab.bind(this)}>About</li>
+              <li id="generalSettings" className={this.isActive('generalSettings')} onClick={this.changeTab.bind(this)}>일반</li>
+              <li id="aboutPane" className={this.isActive('aboutPane')} onClick={this.changeTab.bind(this)}>정보</li>
             </ul>
           </div>
           <div className="settings-main-pane">
