@@ -26,18 +26,18 @@ class GeneralSettings extends React.Component {
       <div className="settings-main-pane-inner">
         <h1>보기 설정</h1>
         <label className="show-option">
-          <span>SNS</span>
+          <span>SNS 공유 버튼</span>
           <Toggle id="showSns" defaultChecked={this.state.showFeatures.showSns}
             icons={false} onChange={this.props.toggleFeature.bind(this)} />
         </label>
         <br/>
-        <h1>Options</h1>
+        <h1>옵션</h1>
         <label className="show-option">
-          <span>Clock Format</span>
+          <span>시계 포멧</span>
           <div className="units-toggle-container">
-            <span id="clockFormat-12hour" className={this.activeClockFormat('12hour')} onClick={this.changeOption.bind(this)}>12 hr</span>
+            <span id="clockFormat-12hour" className={this.activeClockFormat('12hour')} onClick={this.changeOption.bind(this)}>12시간</span>
             <span>|</span>
-            <span id="clockFormat-24hour" className={this.activeClockFormat('24hour')} onClick={this.changeOption.bind(this)}>24 hr</span>
+            <span id="clockFormat-24hour" className={this.activeClockFormat('24hour')} onClick={this.changeOption.bind(this)}>24시간</span>
           </div>
         </label>
       </div>
