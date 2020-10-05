@@ -145,13 +145,12 @@ class App extends React.Component {
                 }
                 {this.state.showText
                 && <div className="row middle-row">
-                    {this.state.showFeatures.showQuote
-                    && <Quote
+                    <Quote
                         updateQuoteInfo={this.updateQuoteInfo.bind(this)}
                         quote={this.state.currentQuote}
                         quoteFrequency={this.state.options.quoteFrequency}
+                        showSns={this.state.showFeatures.showSns}
                     />
-                    }
                 </div>
                 }
                 {this.state.showText

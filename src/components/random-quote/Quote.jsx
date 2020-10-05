@@ -11,7 +11,7 @@ class Quote extends Component {
       currentQuote: {
         quoteText: '',
         authorName: '',
-        id: ''
+        id: '',
       },
     };
   }
@@ -81,10 +81,12 @@ class Quote extends Component {
         <div className='author-container'>
           <div>{this.state.currentQuote.authorName}</div>
         </div>
-        <TwitterLink
+        {this.props.showSns
+        && <TwitterLink
             quoteText={this.props.quote.quoteText}
             authorName={this.props.quote.authorName}
         />
+        }
       </div>
     );
   }

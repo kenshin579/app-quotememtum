@@ -24,10 +24,10 @@ class GeneralSettings extends React.Component {
   render() {
     return (
       <div className="settings-main-pane-inner">
-        <h1>Show</h1>
+        <h1>보기 설정</h1>
         <label className="show-option">
-          <span>Quote</span>
-          <Toggle id="showQuote" defaultChecked={this.state.showFeatures.showQuote}
+          <span>SNS</span>
+          <Toggle id="showSns" defaultChecked={this.state.showFeatures.showSns}
             icons={false} onChange={this.props.toggleFeature.bind(this)} />
         </label>
         <br/>
