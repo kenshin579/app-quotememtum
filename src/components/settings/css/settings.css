@@ -5,26 +5,27 @@
 }
 */
 
+
+.settings-modal {
+  position: fixed;
+  z-index: 100;
+  right:0;
+  top: 0;
+  width: 400px;
+  height: 250px;
+  overflow: auto;
+  background-color: rgba(15, 15, 15, 0.99);
+  margin-top: 50px;
+  border: 1px solid #888;
+  text-shadow: none;
+}
+
 .icon-top-right {
   width: 18px;
   height: 18px;
   filter: drop-shadow(1px 1px 1px grey);
 }
 
-.settings-modal {
-  position: fixed;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  width: 650px;
-  height: 450px;
-  overflow: auto;
-   background-color: rgba(15, 15, 15, 0.99);
-  margin-top: 50px;
-  margin-left: 20px;
-  border: 1px solid #888;
-  text-shadow: none;
-}
 
 .close {
   color: #aaa;
