@@ -54,8 +54,7 @@ class Clock extends Component {
 
     return (
       <div className="clock">
-        <div className="date">{dateArr[0]}/{dateArr[1]} ({dateArr[2]})</div>
-        <div className="time">{timeArr[0]}{timeArr[1] && <span className="ampm"> {timeArr[1]}</span>}</div>
+        <div className="time">{dateArr[0]}/{dateArr[1]} ({dateArr[2]}) {timeArr[0]}{timeArr[1] && <span className="ampm"> {timeArr[1]}</span>}</div>
       </div>
     );
   }
