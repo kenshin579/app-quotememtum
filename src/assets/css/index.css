@@ -45,7 +45,7 @@ main {
   align-items: center;
 }
 
-.todo-list-container, .wallpaper-info-container{
+.wallpaper-info-container{
   flex-grow: 1;
   flex-basis: 25%;
 }
