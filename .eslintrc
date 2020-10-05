@@ -4,7 +4,7 @@
     "ecmaFeatures": {
       "jsx": true
     }
-  },  
+  },
   "extends": [
     "eslint-config-airbnb-base",
     "plugin:react/recommended"
@@ -27,9 +27,10 @@
     "max-len": ["off"],
     "no-console": "off",
     "react/prop-types": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "indent": "off"
   },
   "plugins": [
     "react"
-  ]  
+  ]
 }
