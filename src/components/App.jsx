@@ -14,7 +14,7 @@ import {
     getFromLocalStorage,
     updateLocalStorageObjProp,
     addToLocalStorageArray,
-    removeFromLocalStorageArray
+    removeFromLocalStorageArray,
 } from 'Utils/utilities';
 
 class App extends React.Component {
@@ -123,8 +123,8 @@ class App extends React.Component {
                     showText={this.showText.bind(this)}
                     wallpaperData={this.state.wallpaperData}
                 />
-                {this.state.showSettingsModal &&
-                <SettingsModal
+                {this.state.showSettingsModal
+                && <SettingsModal
                     closeModal={this.toggleSettingsModal.bind(this)}
                     toggleFeature={e => this.toggleFeature(e)}
                     showFeatures={this.state.showFeatures}
@@ -134,20 +134,20 @@ class App extends React.Component {
                     wallpaperData={this.state.wallpaperData}
                 />
                 }
-                {this.state.showText &&
-                <div className="row top-row">
+                {this.state.showText
+                && <div className="row top-row">
                     <div className="top-right-flex">
                         <Clock
                             showFocus={this.state.showFeatures.showFocus}
-                            clockFormat={this.state.options.clockFormat} />
-                        <SettingsIcon toggleSettingsModal={this.toggleSettingsModal.bind(this)} />
+                            clockFormat={this.state.options.clockFormat}/>
+                        <SettingsIcon toggleSettingsModal={this.toggleSettingsModal.bind(this)}/>
                     </div>
                 </div>
                 }
-                {this.state.showText &&
-                <div className="row middle-row">
-                    {this.state.showFeatures.showQuote &&
-                    <Quote
+                {this.state.showText
+                && <div className="row middle-row">
+                    {this.state.showFeatures.showQuote
+                    && <Quote
                         quoteClassName={this.state.responsiveQuote}
                         updateQuoteInfo={this.updateQuoteInfo.bind(this)}
                         quote={this.state.currentQuote}
@@ -156,10 +156,10 @@ class App extends React.Component {
                     }
                 </div>
                 }
-                {this.state.showText &&
-                <div className="row bottom-row">
-                    {this.state.wallpaperData &&
-                    <WallpaperInfo
+                {this.state.showText
+                && <div className="row bottom-row">
+                    {this.state.wallpaperData
+                    && <WallpaperInfo
                         wallpaperInfoClassName={this.state.responsiveWPI}
                         wallpaperData={this.state.wallpaperData}
                         toggleLike={this.toggleLike.bind(this)}
@@ -172,4 +172,4 @@ class App extends React.Component {
     }
 }
 
-export default  App;
+export default App;
