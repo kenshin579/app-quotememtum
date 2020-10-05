@@ -17,9 +17,6 @@ class GeneralSettings extends React.Component {
     this.setState({ options: newOptions });
   }
 
-  activeTempScale(value) {
-    return `option-${(value === this.state.options.tempScale) ? 'active' : 'default'}`;
-  }
   activeClockFormat(value) {
     return `option-${(value === this.state.options.clockFormat) ? 'active' : 'default'}`;
   }
@@ -35,14 +32,6 @@ class GeneralSettings extends React.Component {
         </label>
         <br/>
         <h1>Options</h1>
-        <label className="show-option">
-          <span>Temperature Scale</span>
-          <div className="units-toggle-container">
-            <span id="tempScale-F" className={this.activeTempScale('F')} onClick={this.changeOption.bind(this)}>{String.fromCharCode(176)}F</span>
-            <span>|</span>
-            <span id="tempScale-C" className={this.activeTempScale('C')} onClick={this.changeOption.bind(this)}>{String.fromCharCode(176)}C</span>
-          </div>
-        </label>
         <label className="show-option">
           <span>Clock Format</span>
           <div className="units-toggle-container">
