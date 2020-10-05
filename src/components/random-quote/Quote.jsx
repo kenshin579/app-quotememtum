@@ -9,10 +9,9 @@ class Quote extends Component {
     super(props);
     this.state = {
       currentQuote: {
-        quote: '',
-        author: '',
+        quoteText: '',
+        authorName: '',
         id: '',
-        liked: '',
       },
     };
   }
@@ -50,24 +49,20 @@ class Quote extends Component {
   }
 
   componentDidMount() {
-    const URL = 'https://long-bongo.glitch.me/api.quotes/random';
-    const overTime = this.checkFrequency();
-    if (localStorageKeyExists('quote') && !overTime) {
-      const currentQuote = getFromLocalStorage('quote');
-      this.setState({
-        currentQuote,
-      });
-      this.props.updateQuoteInfo(currentQuote);
+    const URL = 'http://quote.advenoh.pe.kr/api/quotes/random';
+      if (localStorageKeyExists('quote') && !this.checkFrequency()) {
+        const currentQuote = getFromLocalStorage('quote');
+        this.setState({
+          currentQuote,
+        });
+        this.props.updateQuoteInfo(currentQuote);
     } else {
       axios.get(URL)
         .then((response) => {
-          const quoteId = getCurrentTime();
           const currentQuote = {
-            quote: response.data.quote,
-            author: response.data.author,
-            id: quoteId,
-            liked: localStorageKeyExists('quote') &&
-                objIsInArray(getFromLocalStorage('arrLikedQuotes'), 'id', quoteId),
+            quoteText: response.data.quoteText,
+            authorName: response.data.authorName,
+            id: response.data.quoteId
           };
           this.setState({
             currentQuote,
@@ -81,15 +76,17 @@ class Quote extends Component {
 
   render() {
     return (
-      <div className={this.props.quoteClassName}>
-        <div>{this.state.currentQuote.quote}</div>
+      <div className="quote-container">
+        <div>{this.state.currentQuote.quoteText}</div>
         <div className='author-container'>
-          <div>{this.state.currentQuote.author}</div>
-          <TwitterLink
-            quote={this.props.quote.quote}
-            author={this.props.quote.author}
-          />
+          <div>{this.state.currentQuote.authorName}</div>
         </div>
+        {this.props.showSns
+        && <TwitterLink
+            quoteText={this.props.quote.quoteText}
+            authorName={this.props.quote.authorName}
+        />
+        }
       </div>
     );
   }

@@ -10,7 +10,6 @@ html, body, #root {
 
 main {
   color: white;
-  font-weight: 500;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -22,7 +21,12 @@ main {
   z-index: 10;
 }
 
-.top-row, .bottom-row {
+.top-row {
+  margin: 10px 20px;
+  justify-content: flex-end;
+}
+
+.bottom-row {
   margin: 10px 20px;
   justify-content: space-between;
 }
@@ -41,7 +45,7 @@ main {
   align-items: center;
 }
 
-.todo-list-container, .wallpaper-info-container{
+.wallpaper-info-container{
   flex-grow: 1;
   flex-basis: 25%;
 }
@@ -49,56 +53,4 @@ main {
 .quote-container {
   flex-grow: 2;
   flex-basis: 50%
-}
-
-.hide {
-  display: none;
-}
-
-@media only screen and (max-width: 700px) {
-  .bottom-row {
-    flex-direction: column-reverse;
-    height: 200px;
-  }
-  .quote-container {
-    width: 95%;
-    flex-basis: 25%;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0px;
-  }
-  .wallpaper-info-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .photographer-container {
-    justify-content: center;
-  }
-  #center {
-    height: 50%;
-  }
-  .todo-list-container {
-    align-items: center;
-    justify-content: center;    
-  } 
-  .hide700 {
-    display: none;
-  }  
-  .show700 {
-    display: block;
-  }  
-  .toggle-div {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }  
-}
-
-@media only screen and (min-width: 701px) {
-  .show700 {
-    display: none;
-  }
 }

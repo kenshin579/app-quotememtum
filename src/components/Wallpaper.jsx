@@ -72,8 +72,8 @@ class WallpaperInfo extends React.Component {
       getUnsplashPhoto()
         .then((result) => {
           const wallpaperData = result.data;
-          wallpaperData.wallpaperLiked = localStorageKeyExists('wallpaper') &&
-            objIsInArray(getFromLocalStorage('arrLikedWallpapers'), 'id', wallpaperData.id);
+          // wallpaperData.wallpaperLiked = localStorageKeyExists('wallpaper') &&
+          //   objIsInArray(getFromLocalStorage('arrLikedWallpapers'), 'id', wallpaperData.id);
           this.preLoadImages(wallpaperData.urls.regular, wallpaperData.urls.thumb);
           this.setState({
             wallpaperData,

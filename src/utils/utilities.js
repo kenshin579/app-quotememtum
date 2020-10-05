@@ -87,16 +87,10 @@ export const initializeLocalStorage = () => {
     addToLocalStorage('wallpaperTimestamp', 0);
     addToLocalStorage('userSettings', {
         showFeatures: {
-            showChromeTab: true,
-            showSearch: true,
-            showWeather: true,
             showFocus: true,
-            showQuote: true,
-            showTodo: true,
-            showApps: true,
+            showSns: true,
         },
         options: {
-            tempScale: 'C',
             clockFormat: '24hour',
             quoteFrequency: '6hour',
             wallpaperFrequency: '6hour',

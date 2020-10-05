@@ -1,46 +1,31 @@
-#center {
-  height: 455px;
-  align-items: center;
-  justify-content: center;
-  width: 90%;  
-}
-
-#center > div {
-  text-align: center;
+.clock {
+  margin: 0px 10px;
 }
 
 .time {
-  font-size: 175px;
+  font-size: 15px;
 }
 
 .ampm {
-  font-size: 30px;
+  font-size: 15px;
   text-transform: uppercase;
 }
 
-.greeting {
-  font-size: 60px;
-}
+/*.container-center-todo {*/
+/*  margin-top: 30px;*/
+/*  font-size: 25px;*/
+/*  font-weight: 500;*/
+/*}*/
 
-.focusToDo-main-container {
-  height: 135px;
-}
-
-.container-center-todo {
-  margin-top: 30px;
-  font-size: 25px;
-  font-weight: 500;
-}
-
-.congrats-container {
-  height: 25px;
-  font-size: 15px;
-  margin: 5px 4px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
+/*.congrats-container {*/
+  /*height: 25px;*/
+  /*font-size: 15px;*/
+  /*margin: 5px 4px;*/
+  /*display: flex;*/
+  /*flex-direction: row;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+/*}*/
 
 @keyframes exit-congrat {
   0% {
@@ -104,11 +89,11 @@
   animation: ping-effect 4s ease;
 }
 
-@media only screen and (max-width: 700px) {
-  .time {
-    font-size: 60px;
-  }
-  .greeting {
-    font-size: 40px;
-  }  
-}
+/*@media only screen and (max-width: 700px) {*/
+  /*!*.time {*!*/
+    /*!*font-size: 15px;*!*/
+  /*!*}*!*/
+  /*!*.greeting {*!*/
+    /*!*font-size: 40px;*!*/
+  /*!*}  *!*/
+/*}*/

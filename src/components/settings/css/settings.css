@@ -1,22 +1,32 @@
+/*
 .icon-top-left {
   width: 18px;
   height: 18px;
 }
+*/
+
 
 .settings-modal {
   position: fixed;
   z-index: 100;
-  left: 0;
+  right:0;
   top: 0;
-  width: 650px;
-  height: 450px;
+  width: 400px;
+  height: 250px;
   overflow: auto;
-   background-color: rgba(15, 15, 15, 0.99);  
+  background-color: rgba(15, 15, 15, 0.99);
   margin-top: 50px;
-  margin-left: 20px;
+  margin-right: 20px;
   border: 1px solid #888;
   text-shadow: none;
 }
+
+.icon-top-right {
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(1px 1px 1px grey);
+}
+
 
 .close {
   color: #aaa;
@@ -54,14 +64,14 @@
 
 .settings-side-menu li {
   font-size: 16px;
-  cursor: pointer;  
+  cursor: pointer;
   list-style-type: none;
   margin-bottom: 20px;
-  color: lightgray;  
+  color: lightgray;
 }
 
 .settings-side-menu #aboutPane {
-  font-size: 12px;
+  /*font-size: 12px;*/
   opacity: .4;
 }
 
