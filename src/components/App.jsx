@@ -29,10 +29,6 @@ class App extends React.Component {
 
         this.state = {
             wallpaperData,
-            askNameStyle: {
-                label: 'askName-label',
-                input: 'askName-input',
-            },
             currentQuote,
             showFeatures: userSettings.showFeatures,
             options: userSettings.options,
