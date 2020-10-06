@@ -71,32 +71,6 @@ class App extends React.Component {
         });
     }
 
-    toggleLike(likeStatus, objId, type) {
-        if (type === 'wallpaper') {
-            const wallpaperData = updateLocalStorageObjProp('wallpaper', 'wallpaperLiked', likeStatus);
-            if (wallpaperData.id === objId) {
-                this.setState({wallpaperData}, () => {
-                    if (likeStatus) {
-                        const arrLikedWallpapers = addToLocalStorageArray('arrLikedWallpapers', this.state.wallpaperData);
-                        this.setState({
-                            arrLikedWallpapers,
-                        });
-                    } else {
-                        const arrLikedWallpapers = removeFromLocalStorageArray('arrLikedWallpapers', 'id', objId);
-                        this.setState({
-                            arrLikedWallpapers,
-                        });
-                    }
-                });
-            } else {
-                const arrLikedWallpapers = removeFromLocalStorageArray('arrLikedWallpapers', 'id', objId);
-                this.setState({
-                    arrLikedWallpapers,
-                });
-            }
-        }
-    }
-
     showText() {
         this.setState({
             showText: true,
@@ -155,7 +129,6 @@ class App extends React.Component {
                     && <WallpaperInfo
                         wallpaperInfoClassName={this.state.responsiveWPI}
                         wallpaperData={this.state.wallpaperData}
-                        toggleLike={this.toggleLike.bind(this)}
                     />
                     }
                 </div>
