@@ -1,3 +1,5 @@
+import {PREFIX} from 'Constants/constants';
+
 const wallpaperData = {
     id: 'U3F2o6vz3bs',
     created_at: '2016-10-16T07:23:27-04:00',
@@ -99,15 +101,15 @@ export const initializeLocalStorage = () => {
 };
 
 export const addToLocalStorage = (key, value) => {
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(PREFIX + '_' + key, JSON.stringify(value));
 };
 
 export const getFromLocalStorage = (key) => {
-    return JSON.parse(localStorage.getItem(key));
+    return JSON.parse(localStorage.getItem(PREFIX + '_' + key));
 };
 
 export const localStorageKeyExists = (key) => {
-    return localStorage.getItem(key) !== null;
+    return localStorage.getItem(PREFIX + '_' + key) !== null;
 };
 
 

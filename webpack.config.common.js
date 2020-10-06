@@ -95,6 +95,7 @@ module.exports = {
       Stylesheets: path.resolve(__dirname, './src/assets/css/'),
       Images: path.resolve(__dirname, './src/assets/images/'),
       Json: path.resolve(__dirname, './src/assets/json/'),
+      Constants: path.resolve(__dirname, './src/constants'),
     },
   },
 };

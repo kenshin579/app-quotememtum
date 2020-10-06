@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {QUOTE_API_URL} from 'Constants/constants'
 import { addToLocalStorage, localStorageKeyExists, getFromLocalStorage, getCurrentTime, objIsInArray } from 'Utils/utilities';
 import 'Stylesheets/quote.css';
 import TwitterLink from './twitter.jsx';
+import quoteJson from 'Json/quote.json';
 
 class Quote extends Component {
   constructor(props) {
@@ -49,7 +51,6 @@ class Quote extends Component {
   }
 
   componentDidMount() {
-    const URL = 'http://quote.advenoh.pe.kr/api/quotes/random';
       if (localStorageKeyExists('quote') && !this.checkFrequency()) {
         const currentQuote = getFromLocalStorage('quote');
         this.setState({
@@ -57,7 +58,7 @@ class Quote extends Component {
         });
         this.props.updateQuoteInfo(currentQuote);
     } else {
-      axios.get(URL)
+      axios.get(QUOTE_API_URL)
         .then((response) => {
           const currentQuote = {
             quoteText: response.data.quoteText,
@@ -70,7 +71,18 @@ class Quote extends Component {
           addToLocalStorage('quote', currentQuote);
           addToLocalStorage('quoteTimeStamp', getCurrentTime());
           this.props.updateQuoteInfo(currentQuote);
-        });
+        })
+       .catch(error => {
+           console.error('error getting quote from server', error);
+           const currentQuote = {
+               quoteText : quoteJson.quoteText,
+               authorName : quoteJson.authorName
+           };
+           this.setState({
+               currentQuote,
+           });
+           this.props.updateQuoteInfo(currentQuote);
+       });
     }
   }
 

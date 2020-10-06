@@ -29,15 +29,10 @@ class App extends React.Component {
 
         this.state = {
             wallpaperData,
-            askNameStyle: {
-                label: 'askName-label',
-                input: 'askName-input',
-            },
             currentQuote,
             showFeatures: userSettings.showFeatures,
             options: userSettings.options,
             responsiveWPI: 'wallpaper-info-container',
-            quoteToggle: 'Quote',
             wpiToggle: 'Pic Info',
             showText: false,
         };
@@ -73,32 +68,6 @@ class App extends React.Component {
         this.setState({
             currentQuote,
         });
-    }
-
-    toggleLike(likeStatus, objId, type) {
-        if (type === 'wallpaper') {
-            const wallpaperData = updateLocalStorageObjProp('wallpaper', 'wallpaperLiked', likeStatus);
-            if (wallpaperData.id === objId) {
-                this.setState({wallpaperData}, () => {
-                    if (likeStatus) {
-                        const arrLikedWallpapers = addToLocalStorageArray('arrLikedWallpapers', this.state.wallpaperData);
-                        this.setState({
-                            arrLikedWallpapers,
-                        });
-                    } else {
-                        const arrLikedWallpapers = removeFromLocalStorageArray('arrLikedWallpapers', 'id', objId);
-                        this.setState({
-                            arrLikedWallpapers,
-                        });
-                    }
-                });
-            } else {
-                const arrLikedWallpapers = removeFromLocalStorageArray('arrLikedWallpapers', 'id', objId);
-                this.setState({
-                    arrLikedWallpapers,
-                });
-            }
-        }
     }
 
     showText() {
@@ -159,7 +128,6 @@ class App extends React.Component {
                     && <WallpaperInfo
                         wallpaperInfoClassName={this.state.responsiveWPI}
                         wallpaperData={this.state.wallpaperData}
-                        toggleLike={this.toggleLike.bind(this)}
                     />
                     }
                 </div>
