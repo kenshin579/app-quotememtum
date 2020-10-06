@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {QUOTE_API_URL} from 'Constants/constants'
-import { addToLocalStorage, localStorageKeyExists, getFromLocalStorage, getCurrentTime, objIsInArray } from 'Utils/utilities';
+import { QUOTE_API_URL } from 'Constants/constants';
+import { addToLocalStorage, localStorageKeyExists, getFromLocalStorage, getCurrentTime } from 'Utils/utilities';
 import 'Stylesheets/quote.css';
+import quoteListJson from 'Json/quote.json';
 import TwitterLink from './twitter.jsx';
-import quoteJson from 'Json/quote.json';
 
 class Quote extends Component {
   constructor(props) {
@@ -63,7 +63,7 @@ class Quote extends Component {
           const currentQuote = {
             quoteText: response.data.quoteText,
             authorName: response.data.authorName,
-            id: response.data.quoteId
+            id: response.data.quoteId,
           };
           this.setState({
             currentQuote,
@@ -74,9 +74,10 @@ class Quote extends Component {
         })
        .catch(error => {
            console.error('error getting quote from server', error);
+           let index = Math.floor(Math.random() * quoteListJson.length);
            const currentQuote = {
-               quoteText : quoteJson.quoteText,
-               authorName : quoteJson.authorName
+               quoteText : quoteListJson[index].quoteText,
+               authorName : quoteListJson[index].authorName,
            };
            this.setState({
                currentQuote,
