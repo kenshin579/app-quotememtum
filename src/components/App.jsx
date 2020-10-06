@@ -33,7 +33,6 @@ class App extends React.Component {
             showFeatures: userSettings.showFeatures,
             options: userSettings.options,
             responsiveWPI: 'wallpaper-info-container',
-            quoteToggle: 'Quote',
             wpiToggle: 'Pic Info',
             showText: false,
         };
