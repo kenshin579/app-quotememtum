@@ -3,19 +3,19 @@
   margin: 0px;
 }
 
-.show-option {
+.show-option-clock-freq {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgba(255, 255, 255, 0.075);
   margin-bottom: 5px;
 }
 
-.show-option span {
+.show-option-clock-freq span {
   font-size: 14px;
   cursor: pointer;
 }
 
-.units-toggle-container > :nth-child(2) {
+.units-clock-freq-toggle-container > :nth-child(2) {
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 3px;
 }
@@ -25,10 +25,56 @@
   opacity: 1;
 }
 
-.units-toggle-container {
+.units-clock-freq-toggle-container {
   display: flex;
   justify-content: space-around;
   width: 100px;
+}
+
+/* 명언 frequency */
+.show-option-quote-freq {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+  margin-bottom: 5px;
+  margin-top: 15px;
+  margin-right: 5px;
+}
+
+/*.show-option2 > * {*/
+/*  margin: 5px 4px;*/
+/*}*/
+
+.show-option-quote-freq span {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.show-option-quote-freq .author-style {
+  font-size: 13px;
+  color: lightgrey;
+  opacity: .5;
+}
+
+.show-option-quote-freq:hover .transparency {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.units-quote-freq-toggle-container {
+  display: flex;
+  justify-content: space-around;
+  width: 150px;
+}
+
+.units-quote-freq-toggle-container > :nth-child(2) {
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 3px;
+}
+.units-quote-freq-toggle-container > :nth-child(4) {
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 3px;
 }
 
 .option-active {
@@ -41,7 +87,7 @@
 }
 
 @media only screen and (max-width: 700px) {
-  .units-toggle-container {
+  .units-clock-freq-toggle-container {
     width: 70%;
   }
 }
