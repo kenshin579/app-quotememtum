@@ -15,6 +15,7 @@ class Quote extends Component {
         authorName: '',
         id: '',
       },
+      showQuote: false,
     };
   }
 
@@ -50,6 +51,12 @@ class Quote extends Component {
     return timeInterval >= quoteFrequencyMili;
   }
 
+  showQuote() {
+      this.setState({
+          showQuote: true,
+      });
+  }
+
   componentDidMount() {
       if (localStorageKeyExists('quote') && !this.checkFrequency()) {
         const currentQuote = getFromLocalStorage('quote');
@@ -83,6 +90,9 @@ class Quote extends Component {
                currentQuote,
            });
            this.props.updateQuoteInfo(currentQuote);
+       })
+       .finally(() => {
+           this.showQuote();
        });
     }
   }
@@ -91,10 +101,11 @@ class Quote extends Component {
     return (
       <div className="quote-container">
         <div>{this.state.currentQuote.quoteText}</div>
-        <div className='author-container'>
-          <div>{this.state.currentQuote.authorName}</div>
-        </div>
-        {this.props.showSns
+          {this.state.showQuote
+          && <div className='author-container'>
+                <div>{this.state.currentQuote.authorName}</div>
+              </div>}
+        {this.props.showSns && this.state.showQuote
         && <TwitterLink
             quoteText={this.props.quote.quoteText}
             authorName={this.props.quote.authorName}
