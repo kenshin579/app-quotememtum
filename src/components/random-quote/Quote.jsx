@@ -64,6 +64,7 @@ class Quote extends Component {
           currentQuote,
         });
         this.props.updateQuoteInfo(currentQuote);
+        this.showQuote();
     } else {
       axios.get(QUOTE_API_URL)
         .then((response) => {
