@@ -1,17 +1,17 @@
 {
   "manifest_version": 2,
   "name": "Quotememtum",
-  "description": "Quotememtum Chrome Extension",
+  "description": "Chrome Extension for Quotememtum",
   "version": "1.0.0",
   "icons": {
-    "16": "./assets/images/quote-16.png",
-    "128": "./assets/images/quote-128.png"
+    "16": "./assets/images/favicons/favicon-16x16.png",
+    "128": "./assets/images/favicons/quote-128.png"
   },
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
   "browser_action": {
-    "default_icon": "./assets/images/quote-16.png"
+    "default_icon": "./assets/images/favicons/favicon-16x16.png"
   },
   "content_security_policy": "script-src 'self' https://quote.advenoh.pe.kr; object-src 'self'",
   "permissions": [
