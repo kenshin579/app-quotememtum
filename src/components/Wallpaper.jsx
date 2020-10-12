@@ -5,7 +5,7 @@ import 'Stylesheets/wallpaper.css';
 import 'Images/photo-1476616853026-24c1f0309646.jpg';
 import 'Images/photo-1476616853026-24c1f0309646-thumb.jpg';
 
-class WallpaperInfo extends React.Component {
+class Wallpaper extends React.Component {
   constructor(props) {
     super(props);
     const haveTodaysPhoto = isNotANewDay(localStorage.wallpaperTimestamp, getCurrentTime());
@@ -15,7 +15,9 @@ class WallpaperInfo extends React.Component {
         haveTodaysPhoto: true,
         showThumb: true,
       };
-      if (localStorage.wallpaperTimestamp === '0') addToLocalStorage('wallpaperTimestamp', getCurrentTime());
+      if (localStorage.wallpaperTimestamp === '0') {
+        addToLocalStorage('wallpaperTimestamp', getCurrentTime());
+      }
       this.preLoadImages(this.props.wallpaperData.urls.regular, this.props.wallpaperData.urls.thumb);
     } else {
       this.state = {
@@ -108,4 +110,4 @@ class WallpaperInfo extends React.Component {
   }
 }
 
-export default WallpaperInfo;
+export default Wallpaper;
