@@ -8,12 +8,3 @@ export const getUnsplashPhoto = () => {
 
     return axios.get(urlString);
 };
-
-export const getWeather = (userLat, userLon, tempScale) => {
-    const api = 'https://hickory-office.glitch.me/api.weather?';
-    const lat = `lat=${userLat}`;
-    const lon = `lon=${userLon}`;
-    const units = `units=${tempScale === 'C' ? 'metric' : 'imperial'}`;
-    const urlString = [api, lat, '&', lon, '&', units].join('');
-    return axios.get(urlString);
-};
