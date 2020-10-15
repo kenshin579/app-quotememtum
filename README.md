@@ -1,4 +1,5 @@
 [![HitCount](http://hits.dwyl.com/kenshin579/app-quotementum.svg)](http://hits.dwyl.com/kenshin579/app-quotementum)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/036a5666-0b30-4f34-a220-86341ab61b1b/deploy-status)](https://app.netlify.com/sites/quotememtum/deploys)
 
 # 들어가며
 
