@@ -70,7 +70,7 @@ class Quote extends Component {
         .then((response) => {
           const currentQuote = {
             quoteText: response.data.quoteText,
-            authorName: response.data.authorName,
+            authorName: response.data.authorName || '익명',
             id: response.data.quoteId,
           };
           this.setState({
