@@ -1,4 +1,4 @@
-[![HitCount](http://hits.dwyl.com/kenshin579/app-quotementum.svg)](http://hits.dwyl.com/kenshin579/app-quotementum)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkenshin579%2Fapp-quotememtum&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/036a5666-0b30-4f34-a220-86341ab61b1b/deploy-status)](https://app.netlify.com/sites/quotememtum/deploys)
 
 # 들어가며
