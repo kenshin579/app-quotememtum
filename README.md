@@ -1,53 +1,62 @@
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkenshin579%2Fapp-quotememtum&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/036a5666-0b30-4f34-a220-86341ab61b1b/deploy-status)](https://app.netlify.com/sites/quotememtum/deploys)
 
-# 들어가며
+# Quotememtum
 
-**Quotememtum**은 개인적으로 많이 사용하는 **모멘텀**([Momentum](https://momentumdash.com/)) 프로젝트에 기반하여 작성되었습니다. **모멘텀**에서는 여러 기능(ex. Todo, 날씨, 시계)을 제공하지만, **Quotememtum**은 이름으로 바로 알 수 있듯이 **명언을 메인**으로 보여주는 사이트입니다.
+새 탭에서 매일 영감을 주는 명언을 만나보세요.
 
-# 기능
+[Momentum](https://momentumdash.com/)에서 영감을 받아 만든 Chrome Extension으로, **명언**을 메인으로 보여줍니다.
 
-Quotememtum에서 제공하는 기능들입니다. 
+## 기능
 
-- Daily 명언
-  - 실제 명언은 http://quote.advenoh.pe.kr 사이트에서 제공하는 random API를 사용해서 가져온다
-  - 현재 시간 및 날짜 제공
-- 설정
-  - 보기 설정 (ON / OFF)
-    - SNS 공유 기능 활성화
-  - 옵션 
-    - 명언 업데이트 주기 및 시계 포멧
+- 매일 새로운 명언 (InspireMe API 연동)
+  - 오늘의 명언 / 랜덤 명언 모드
+  - 한국어 / English 전환
+  - 명언 클릭 시 InspireMe 사이트로 이동
+- 실시간 시계 (12/24시간 형식)
+- Unsplash 랜덤 배경 이미지
+- 명언 북마크 (하트)
+- 다크 모드
+- 설정: 시계 형식, 명언 모드/주기, 언어, API Key 관리
 
-## Contributions
+## 기술 스택
 
-추후 개발할 내용은 Issue로 등록해두었고 누구나 개발에 참여할 수 있습니다. 아래 Issue 페이지를 참고해주세요. 
+- React 19 + TypeScript
+- WXT (Chrome Extension 빌드 프레임워크)
+- Tailwind CSS v4
+- Chrome Manifest v3
 
-https://github.com/kenshin579/app-quotememtum/issues
+## 빌드 및 실행
 
-# 빌드 및 실행
-
-## 1. 개발 환경에서의 실행
-
-개발환경에서는 `npm dependency` 설치 이후 `run dev-server` 옵션으로 실행하면 브라우져에서 사이트가 로딩됩니다. 
-
-```bash
-$ npm i
-$ npm run dev-server
-```
-
-
-## 2. 프로덕션으로 빌드하기
-
-`run build-production` 옵션으로 실행하면 `dist` 폴더가 생성되고 index 파일을 browser에서 로딩하면 됩니다. 
+### 개발 환경
 
 ```bash
-$ npm run build-production
+pnpm install
+pnpm dev
 ```
 
-# 화면
+### 프로덕션 빌드
 
-웹사이트도 제공하지만, chrome extension으로도 제공합니다. 
+```bash
+pnpm build
+```
 
-![image-20201009094713392](images/image-20201009094713392.png)
+빌드 결과물: `.output/chrome-mv3/`
 
-![image-20201009094740297](images/image-20201009094740297.png)
+### Chrome에서 로드
+
+1. `chrome://extensions` 접속
+2. "개발자 모드" 활성화
+3. "압축 해제된 확장 프로그램을 로드합니다" 클릭
+4. `.output/chrome-mv3` 폴더 선택
+
+## API Key 설정
+
+1. [inspireme.advenoh.pe.kr](https://inspireme.advenoh.pe.kr) 에서 로그인
+2. 설정 → API Key 관리 → 새 키 발급
+3. 확장 프로그램 설정 → API Key 탭에 입력
+
+API Key 없이도 기본 명언이 표시됩니다.
+
+## 스크린샷
+
+![screenshot](images/image-20201009094713392.png)
