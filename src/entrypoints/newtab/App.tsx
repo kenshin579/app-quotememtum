@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSettings } from '../../hooks/useSettings';
 import { useQuote } from '../../hooks/useQuote';
 import { useClock } from '../../hooks/useClock';
 import { useBackground } from '../../hooks/useBackground';
+import { useBookmarks } from '../../hooks/useBookmarks';
 import { Background } from '../../components/Background';
 import { Clock } from '../../components/Clock';
 import { Quote } from '../../components/Quote';
@@ -15,7 +16,16 @@ export default function App() {
   const { quote, loading: quoteLoading } = useQuote(settings);
   const { formatted, dateStr } = useClock(settings.clockFormat);
   const { bgUrl, photoInfo } = useBackground();
+  const { isBookmarked, toggleBookmark } = useBookmarks();
   const [showSettings, setShowSettings] = useState(false);
+
+  useEffect(() => {
+    if (settings.darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [settings.darkMode]);
 
   if (!loaded) return null;
 
@@ -29,7 +39,12 @@ export default function App() {
       </div>
 
       <div className="flex flex-1 items-center justify-center px-8">
-        <Quote quote={quote} loading={quoteLoading} />
+        <Quote
+          quote={quote}
+          loading={quoteLoading}
+          isBookmarked={quote?.id ? isBookmarked(quote.id) : false}
+          onToggleBookmark={quote ? () => toggleBookmark(quote) : undefined}
+        />
       </div>
 
       <div className="flex items-end justify-between p-5">

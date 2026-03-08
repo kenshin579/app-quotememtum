@@ -52,6 +52,21 @@ export function GeneralSettings({ settings, onUpdate }: GeneralSettingsProps) {
           <option value="en">English</option>
         </select>
       </SettingRow>
+
+      <SettingRow label="다크 모드">
+        <button
+          onClick={() => onUpdate({ darkMode: !settings.darkMode })}
+          className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+            settings.darkMode ? 'bg-blue-600' : 'bg-gray-600'
+          }`}
+        >
+          <span
+            className={`inline-block h-4 w-4 rounded-full bg-white transition-transform ${
+              settings.darkMode ? 'translate-x-6' : 'translate-x-1'
+            }`}
+          />
+        </button>
+      </SettingRow>
     </div>
   );
 }
