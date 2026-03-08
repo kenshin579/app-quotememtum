@@ -63,26 +63,26 @@
 
 ## Phase 7: 신규 기능 (P1)
 
-- [ ] 명언 북마크 - 하트 버튼 + chrome.storage에 저장/조회
-- [ ] 다크 모드 - 시스템 설정 연동 (`prefers-color-scheme`) + 수동 토글
-- [ ] 저자 정보 표시 - QOTD authorInfo 활용, 클릭 시 팝업
+- [x] 명언 북마크 - 하트 버튼 + chrome.storage에 저장/조회
+- [x] 다크 모드 - 시스템 설정 연동 (`prefers-color-scheme`) + 수동 토글
+- [x] 저자 정보 표시 - QOTD authorInfo 활용, 클릭 시 팝업
 
 ## Phase 8: 에러 핸들링 및 Google Analytics
 
-- [ ] API 401 에러 → 폴백 명언 + 설정 안내
-- [ ] API 429 에러 → 캐시 사용 + Retry-After 대기
-- [ ] 네트워크 오류 → 캐시 사용 + 복구 시 자동 갱신
-- [ ] Unsplash API 실패 → 기본 배경 이미지
-- [ ] Google Analytics - Measurement Protocol 방식 구현 (Manifest v3 대응)
-- [ ] GA 이벤트 트래킹: 페이지뷰, 명언 갱신, 명언 클릭, 설정 변경
+- [x] API 401 에러 → 폴백 명언 + 설정 안내
+- [x] API 429 에러 → 캐시 사용 + Retry-After 대기
+- [x] 네트워크 오류 → 캐시 사용 + 복구 시 자동 갱신
+- [x] Unsplash API 실패 → 기본 배경 이미지
+- [x] Google Analytics - Measurement Protocol 방식 구현 (Manifest v3 대응)
+- [x] GA 이벤트 트래킹: 페이지뷰, 명언 갱신, 명언 클릭, 설정 변경
 
 ## Phase 9: 마무리 및 배포 준비
 
 - [ ] 확장 프로그램 아이콘 제작 (16/48/128px)
 - [ ] UI/UX 폴리싱 (로딩 상태, 애니메이션, 전환 효과)
-- [ ] 기존 Weather API 코드 제거
-- [ ] 기존 SNS 공유 (트위터) 코드 제거
-- [ ] `pnpm build` 프로덕션 빌드 확인
+- [x] 기존 Weather API 코드 제거
+- [x] 기존 SNS 공유 (트위터) 코드 제거
+- [x] `pnpm build` 프로덕션 빌드 확인
 - [ ] Chrome에서 빌드 결과물 사이드로딩 테스트
 - [ ] **MCP Playwright로 전체 플로우 E2E 테스트**
   - [ ] 새 탭 열기 → 명언 + 배경 표시 확인
@@ -90,4 +90,4 @@
   - [ ] 명언 클릭 → InspireMe 사이트 이동 확인
   - [ ] API Key 설정 플로우 확인
 - [ ] Chrome Web Store 등록 준비 (스크린샷, 설명, 카테고리)
-- [ ] README.md 업데이트
+- [x] README.md 업데이트
