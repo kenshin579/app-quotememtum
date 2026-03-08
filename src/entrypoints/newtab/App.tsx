@@ -10,6 +10,7 @@ import { Quote } from '../../components/Quote';
 import { WallpaperInfo } from '../../components/WallpaperInfo';
 import { SettingsIcon } from '../../components/SettingsIcon';
 import { SettingsModal } from '../../components/settings/SettingsModal';
+import { trackPageView } from '../../lib/analytics';
 
 export default function App() {
   const { settings, updateSettings, loaded } = useSettings();
@@ -18,6 +19,10 @@ export default function App() {
   const { bgUrl, photoInfo } = useBackground();
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const [showSettings, setShowSettings] = useState(false);
+
+  useEffect(() => {
+    trackPageView();
+  }, []);
 
   useEffect(() => {
     if (settings.darkMode) {
