@@ -10,7 +10,7 @@ export default defineConfig({
     description: '새 탭에서 매일 영감을 주는 명언을 만나보세요',
     permissions: ['storage'],
     host_permissions: [
-      'https://inspireme.advenoh.pe.kr/*',
+      'https://inspire-me.advenoh.pe.kr/*',
       'https://api.unsplash.com/*',
     ],
   },

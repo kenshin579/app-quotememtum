@@ -1,6 +1,6 @@
 export const STORAGE_PREFIX = 'QMT';
 
-export const INSPIREME_BASE_URL = 'https://inspireme.advenoh.pe.kr';
+export const INSPIREME_BASE_URL = 'https://inspire-me.advenoh.pe.kr';
 export const INSPIREME_API_URL = `${INSPIREME_BASE_URL}/api/v1`;
 
 export const UNSPLASH_BASE_URL = 'https://api.unsplash.com';
