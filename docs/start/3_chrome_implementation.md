@@ -1,11 +1,11 @@
-# Quotememtum Chrome Extension 현대화 - 구현 문서
+# InspireMe Chrome Extension 현대화 - 구현 문서
 
 ## 1. 프로젝트 초기화
 
 ### WXT + React + TypeScript 셋업
 
 ```bash
-cd app-quotememtum
+cd inspireme.chrome
 # 기존 소스 백업 후 WXT 프로젝트 초기화
 pnpm dlx wxt@latest init . --template react
 ```
@@ -17,7 +17,7 @@ import { defineConfig } from 'wxt';
 export default defineConfig({
   modules: ['@wxt-dev/module-react'],
   manifest: {
-    name: 'Quotememtum',
+    name: 'InspireMe',
     version: '2.0.0',
     description: '새 탭에서 매일 영감을 주는 명언을 만나보세요',
     permissions: ['storage'],
@@ -51,7 +51,7 @@ export default defineConfig({
 ## 2. 디렉토리 구조
 
 ```
-app-quotememtum/
+inspireme.chrome/
 ├── src/
 │   ├── entrypoints/
 │   │   └── newtab/               # WXT newtab 엔트리포인트
@@ -244,7 +244,7 @@ export async function fetchRandomPhoto(): Promise<UnsplashPhoto> {
 ### lib/storage.ts
 
 ```typescript
-const PREFIX = 'QMT';
+const PREFIX = 'IM';
 
 function key(name: string): string {
   return `${PREFIX}_${name}`;

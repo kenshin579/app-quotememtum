@@ -1,4 +1,4 @@
-# Quotememtum Chrome Extension 현대화 PRD
+# InspireMe Chrome Extension 현대화 PRD
 
 ## 1. 현재 상태 분석
 
@@ -192,7 +192,7 @@ Authorization: Bearer im_live_xxxx...
 ```json
 {
   "manifest_version": 3,
-  "name": "Quotememtum",
+  "name": "InspireMe",
   "version": "2.0.0",
   "description": "새 탭에서 매일 영감을 주는 명언을 만나보세요",
   "chrome_url_overrides": {
@@ -253,7 +253,7 @@ Authorization: Bearer im_live_xxxx...
 ## 7. 프로젝트 구조 (안)
 
 ```
-app-quotememtum/
+inspireme.chrome/
 ├── src/
 │   ├── entrypoints/
 │   │   └── newtab/            # WXT 컨벤션: 새 탭 페이지
@@ -356,8 +356,8 @@ app-quotememtum/
 - CI/CD: GitHub Actions로 자동 빌드/배포
 
 ### 9.6 기존 프로젝트 처리
-- 기존 `app-quotememtum/` 디렉토리에서 작업 (덮어쓰기)
-- 또는 `app-quotememtum-v2/`로 새로 시작 후 안정화되면 교체
+- 기존 `inspireme.chrome/` 디렉토리에서 작업 (덮어쓰기)
+- 또는 `inspireme.chrome-v2/`로 새로 시작 후 안정화되면 교체
 - → **기존 디렉토리에서 진행 권장** (git 히스토리 유지)
 
 ### 9.7 모니터링/분석
