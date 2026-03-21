@@ -5,7 +5,7 @@ export default defineConfig({
   srcDir: 'src',
   modules: ['@wxt-dev/module-react'],
   manifest: {
-    name: 'Quotememtum',
+    name: 'InspireMe',
     version: '2.0.0',
     description: '새 탭에서 매일 영감을 주는 명언을 만나보세요',
     permissions: ['storage'],

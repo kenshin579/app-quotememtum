@@ -7,8 +7,8 @@ interface WallpaperInfoProps {
 export function WallpaperInfo({ photo }: WallpaperInfoProps) {
   if (!photo) return null;
 
-  const photographerUrl = `${photo.user.links.html}?utm_source=quotememtum&utm_medium=referral`;
-  const unsplashUrl = 'https://unsplash.com/?utm_source=quotememtum&utm_medium=referral';
+  const photographerUrl = `${photo.user.links.html}?utm_source=inspireme&utm_medium=referral`;
+  const unsplashUrl = 'https://unsplash.com/?utm_source=inspireme&utm_medium=referral';
 
   return (
     <div className="text-xs text-white/60 drop-shadow-md">

@@ -1,4 +1,4 @@
-# Quotememtum Chrome Extension 현대화 - TODO
+# InspireMe Chrome Extension 현대화 - TODO
 
 ## Phase 1: 프로젝트 초기화
 
