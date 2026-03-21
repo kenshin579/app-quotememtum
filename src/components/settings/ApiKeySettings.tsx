@@ -55,7 +55,7 @@ export function ApiKeySettings() {
         {hasKey ? 'API Key가 설정되어 있습니다.' : 'API Key가 없으면 기본 명언이 표시됩니다.'}
         {' '}
         <a
-          href="https://inspireme.advenoh.pe.kr"
+          href="https://inspire-me.advenoh.pe.kr"
           target="_blank"
           rel="noopener noreferrer"
           className="underline hover:text-gray-400"

@@ -51,7 +51,7 @@ pnpm build
 
 ## API Key 설정
 
-1. [inspireme.advenoh.pe.kr](https://inspireme.advenoh.pe.kr) 에서 로그인
+1. [inspire-me.advenoh.pe.kr](https://inspire-me.advenoh.pe.kr) 에서 로그인
 2. 설정 → API Key 관리 → 새 키 발급
 3. 확장 프로그램 설정 → API Key 탭에 입력
 

@@ -20,7 +20,7 @@ export function About() {
           GitHub
         </a>
         <a
-          href="https://inspireme.advenoh.pe.kr"
+          href="https://inspire-me.advenoh.pe.kr"
           target="_blank"
           rel="noopener noreferrer"
           className="block underline hover:text-white"
