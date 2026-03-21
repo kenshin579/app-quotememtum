@@ -27,8 +27,8 @@ echo "New version: $NEW_VERSION"
 sed -i '' "s/\"version\": \".*\"/\"version\": \"${NEW_VERSION_NUM}\"/" package.json
 echo "Updated package.json to ${NEW_VERSION_NUM}"
 
-# 이전 zip 정리 후 빌드
-rm -f .output/*-chrome.zip
+# 빌드 캐시 정리 후 빌드 (버전이 manifest와 zip 파일명에 반영되도록)
+rm -rf .output
 echo "Building and zipping extension..."
 pnpm zip
 
