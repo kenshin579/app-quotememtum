@@ -22,9 +22,9 @@ export function SettingsModal({ settings, onUpdate, onClose }: SettingsModalProp
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 animate-fade-in" onClick={onClose}>
       <div
-        className="w-full max-w-md rounded-xl bg-gray-800 p-6 shadow-2xl"
+        className="w-full max-w-md rounded-xl bg-gray-800 p-6 shadow-2xl animate-scale-in"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-5 flex items-center justify-between">

@@ -35,7 +35,7 @@ export default function App() {
   if (!loaded) return null;
 
   return (
-    <main className="relative flex h-screen flex-col justify-between text-white">
+    <main className="relative flex h-screen flex-col justify-between text-white animate-fade-in">
       <Background url={bgUrl} />
 
       <div className="flex items-start justify-end p-5">

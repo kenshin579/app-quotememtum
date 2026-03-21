@@ -13,8 +13,10 @@ interface QuoteProps {
 export function Quote({ quote, loading, isBookmarked, onToggleBookmark }: QuoteProps) {
   if (loading) {
     return (
-      <div className="text-center text-white/50">
-        <p className="text-lg">불러오는 중...</p>
+      <div className="text-center text-white/50 animate-pulse">
+        <div className="mx-auto h-6 w-64 rounded bg-white/10 mb-4" />
+        <div className="mx-auto h-6 w-48 rounded bg-white/10 mb-4" />
+        <div className="mx-auto h-4 w-32 rounded bg-white/10" />
       </div>
     );
   }
@@ -35,7 +37,7 @@ export function Quote({ quote, loading, isBookmarked, onToggleBookmark }: QuoteP
   );
 
   return (
-    <div className="text-center">
+    <div className="text-center animate-fade-in">
       {hasLink ? (
         <a
           href={quoteUrl}
