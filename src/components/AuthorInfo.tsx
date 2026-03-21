@@ -19,7 +19,7 @@ export function AuthorInfo({ authorInfo }: AuthorInfoProps) {
 
       {open && (
         <div
-          className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 rounded-lg bg-gray-800 p-4 shadow-xl"
+          className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 rounded-lg bg-gray-800 p-4 shadow-xl animate-fade-in"
           onClick={() => setOpen(false)}
         >
           <h4 className="text-sm font-medium text-white">{authorInfo.name}</h4>

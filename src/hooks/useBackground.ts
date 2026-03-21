@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { storage } from '../lib/storage';
 import { fetchRandomPhoto, type UnsplashPhoto } from '../lib/unsplash-api';
+import defaultBgUrl from '../assets/default-bg.jpg';
 
 interface CachedWallpaper {
   url: string;
@@ -40,7 +41,7 @@ export function useBackground() {
         timestamp: Date.now(),
       });
     } catch {
-      setBgUrl(null);
+      setBgUrl(defaultBgUrl);
     } finally {
       setLoading(false);
     }

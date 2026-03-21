@@ -7,7 +7,7 @@ export function BookmarkButton({ active, onClick }: BookmarkButtonProps) {
   return (
     <button
       onClick={onClick}
-      className="mt-3 text-white/60 hover:text-white transition-colors"
+      className="mt-3 text-white/60 hover:text-white transition-all hover:scale-110 active:scale-95"
       aria-label={active ? '북마크 해제' : '북마크'}
     >
       <svg className="h-5 w-5" viewBox="0 0 24 24" fill={active ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth={1.5}>
