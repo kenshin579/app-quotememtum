@@ -1,15 +1,12 @@
 import { INSPIREME_BASE_URL } from '../lib/constants';
 import type { Quote as QuoteType } from '../types/quote';
-import { BookmarkButton } from './BookmarkButton';
 
 interface QuoteProps {
   quote: QuoteType | null;
   loading: boolean;
-  isBookmarked?: boolean;
-  onToggleBookmark?: () => void;
 }
 
-export function Quote({ quote, loading, isBookmarked, onToggleBookmark }: QuoteProps) {
+export function Quote({ quote, loading }: QuoteProps) {
   if (loading) {
     return (
       <div className="text-center text-white/50 animate-pulse">
@@ -52,12 +49,6 @@ export function Quote({ quote, loading, isBookmarked, onToggleBookmark }: QuoteP
           quote.author
         )}
       </p>
-
-      <div className="mt-2 flex items-center justify-center gap-3">
-        {hasLink && onToggleBookmark && (
-          <BookmarkButton active={isBookmarked ?? false} onClick={onToggleBookmark} />
-        )}
-      </div>
     </div>
   );
 }

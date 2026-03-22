@@ -14,7 +14,7 @@ export interface UserSettings {
 
 export const DEFAULT_SETTINGS: UserSettings = {
   clockFormat: '24h',
-  quoteFrequency: 6,
+  quoteFrequency: 1,
   quoteMode: 'qotd',
   language: 'ko',
   darkMode: false,
