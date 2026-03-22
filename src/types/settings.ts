@@ -1,12 +1,11 @@
 export type ClockFormat = '12h' | '24h';
-export type QuoteFrequency = 2 | 6 | 12;
 export type QuoteMode = 'qotd' | 'random';
 export type Language = 'ko' | 'en';
 export type BackgroundSource = 'unsplash' | 'qotd' | 'both';
 
 export interface UserSettings {
   clockFormat: ClockFormat;
-  quoteFrequency: QuoteFrequency;
+  quoteFrequency: number;
   quoteMode: QuoteMode;
   language: Language;
   darkMode: boolean;

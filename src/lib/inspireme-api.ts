@@ -1,5 +1,5 @@
 import { INSPIREME_API_URL } from './constants';
-import type { Quote, QuoteOfTheDay, QuoteApiResponse } from '../types/quote';
+import type { Quote, QuoteApiResponse } from '../types/quote';
 
 export class ApiError extends Error {
   constructor(
@@ -11,14 +11,12 @@ export class ApiError extends Error {
   }
 }
 
-async function apiFetch<T>(path: string, apiKey: string, params?: URLSearchParams): Promise<T> {
+async function apiFetch<T>(path: string, params?: URLSearchParams): Promise<T> {
   const url = params?.toString()
     ? `${INSPIREME_API_URL}${path}?${params}`
     : `${INSPIREME_API_URL}${path}`;
 
-  const res = await fetch(url, {
-    headers: { Authorization: `Bearer ${apiKey}` },
-  });
+  const res = await fetch(url);
 
   if (!res.ok) {
     const body = await res.json().catch(() => null);
@@ -30,20 +28,18 @@ async function apiFetch<T>(path: string, apiKey: string, params?: URLSearchParam
 }
 
 export async function fetchQuoteOfTheDay(
-  apiKey: string,
-  language?: 'ko' | 'en',
-): Promise<QuoteOfTheDay> {
-  const params = new URLSearchParams();
-  if (language) params.set('language', language);
-  return apiFetch<QuoteOfTheDay>('/quote-of-the-day', apiKey, params);
-}
-
-export async function fetchRandomQuote(
-  apiKey: string,
   language?: 'ko' | 'en',
 ): Promise<Quote> {
   const params = new URLSearchParams();
-  if (language) params.set('language', language);
+  if (language) params.set('lang', language);
+  return apiFetch<Quote>('/quote-of-the-day', params);
+}
+
+export async function fetchRandomQuote(
+  language?: 'ko' | 'en',
+): Promise<Quote> {
+  const params = new URLSearchParams();
+  if (language) params.set('lang', language);
   params.set('count', '1');
-  return apiFetch<Quote>('/quotes/random', apiKey, params);
+  return apiFetch<Quote>('/random', params);
 }

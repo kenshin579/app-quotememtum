@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { GeneralSettings } from './GeneralSettings';
-import { ApiKeySettings } from './ApiKeySettings';
 import { About } from './About';
 import type { UserSettings } from '../../types/settings';
 
-type Tab = 'general' | 'apiKey' | 'about';
+type Tab = 'general' | 'about';
 
 interface SettingsModalProps {
   settings: UserSettings;
@@ -17,7 +16,6 @@ export function SettingsModal({ settings, onUpdate, onClose }: SettingsModalProp
 
   const tabs: { key: Tab; label: string }[] = [
     { key: 'general', label: '일반' },
-    { key: 'apiKey', label: 'API Key' },
     { key: 'about', label: '정보' },
   ];
 
@@ -54,7 +52,6 @@ export function SettingsModal({ settings, onUpdate, onClose }: SettingsModalProp
 
         <div className="min-h-[200px]">
           {activeTab === 'general' && <GeneralSettings settings={settings} onUpdate={onUpdate} />}
-          {activeTab === 'apiKey' && <ApiKeySettings />}
           {activeTab === 'about' && <About />}
         </div>
       </div>

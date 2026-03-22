@@ -1,4 +1,4 @@
-import type { UserSettings, ClockFormat, QuoteFrequency, QuoteMode, Language } from '../../types/settings';
+import type { UserSettings, ClockFormat, QuoteMode, Language } from '../../types/settings';
 
 interface GeneralSettingsProps {
   settings: UserSettings;
@@ -31,15 +31,21 @@ export function GeneralSettings({ settings, onUpdate }: GeneralSettingsProps) {
       </SettingRow>
 
       <SettingRow label="명언 갱신 주기">
-        <select
-          value={settings.quoteFrequency}
-          onChange={(e) => onUpdate({ quoteFrequency: Number(e.target.value) as QuoteFrequency })}
-          className="rounded bg-gray-700 px-3 py-1.5 text-sm text-white"
-        >
-          <option value={2}>2시간</option>
-          <option value={6}>6시간</option>
-          <option value={12}>12시간</option>
-        </select>
+        <div className="flex items-center gap-2">
+          <input
+            type="number"
+            min={1}
+            max={24}
+            step={1}
+            value={settings.quoteFrequency}
+            onChange={(e) => {
+              const v = Math.min(24, Math.max(1, Number(e.target.value) || 1));
+              onUpdate({ quoteFrequency: v });
+            }}
+            className="w-16 rounded bg-gray-700 px-2 py-1.5 text-center text-sm text-white [&::-webkit-inner-spin-button]:appearance-auto [&::-webkit-outer-spin-button]:appearance-auto"
+          />
+          <span className="text-sm text-gray-400">시간</span>
+        </div>
       </SettingRow>
 
       <SettingRow label="언어">
