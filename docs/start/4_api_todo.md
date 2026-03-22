@@ -15,11 +15,11 @@
 
 ## Phase 3: UI 변경
 
-- [ ] `src/components/Quote.tsx` — 텍스트 크기 (`text-2xl` → `text-4xl`, `text-lg` → `text-xl`)
-- [ ] `src/components/Quote.tsx` — 명언 클릭 시 현재 탭에서 열기 (`target="_blank"` 제거)
-- [ ] `src/components/Quote.tsx` — `authorSlug`로 작가 페이지 링크, `AuthorInfo` 제거
-- [ ] `src/components/settings/GeneralSettings.tsx` — 갱신 주기 `select` → `input type="number"` (1~24시간)
-- [ ] `src/components/settings/SettingsModal.tsx` — `apiKey` 탭 제거, 탭 2개만 유지
+- [x] `src/components/Quote.tsx` — 텍스트 크기 (`text-2xl` → `text-4xl`, `text-lg` → `text-xl`)
+- [x] `src/components/Quote.tsx` — 명언 클릭 시 현재 탭에서 열기 (`target="_blank"` 제거)
+- [x] `src/components/Quote.tsx` — `authorSlug`로 작가 페이지 링크, `AuthorInfo` 제거
+- [x] `src/components/settings/GeneralSettings.tsx` — 갱신 주기 `select` → `input type="number"` (1~24시간)
+- [x] `src/components/settings/SettingsModal.tsx` — `apiKey` 탭 제거, 탭 2개만 유지
 
 ## Phase 4: 파일 정리
 
