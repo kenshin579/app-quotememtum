@@ -28,9 +28,9 @@
 
 ## Phase 5: 빌드 및 테스트
 
-- [ ] `pnpm build` 정상 빌드 확인
-- [ ] `pnpm lint` 에러 없음 확인
-- [ ] MCP Playwright로 테스트:
+- [x] `pnpm build` 정상 빌드 확인
+- [x] `pnpm lint` 에러 없음 확인
+- [ ] 수동 테스트 (Chrome extension은 chrome-extension:// 스킴이라 MCP 자동 테스트 불가):
   - [ ] 새 탭 열기 → 명언이 API Key 없이 표시되는지 확인
   - [ ] 명언 클릭 → 현재 탭에서 명언 페이지 이동 확인
   - [ ] 설정 모달 → API Key 탭 없음 확인
