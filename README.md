@@ -69,3 +69,4 @@ make tag major   # v2.1.0 → v3.0.0
 ## 스크린샷
 
 ![screenshot](images/screenshot-v2.png)
+![settings](images/screenshot-settings.png)
