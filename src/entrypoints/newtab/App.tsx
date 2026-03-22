@@ -3,7 +3,7 @@ import { useSettings } from '../../hooks/useSettings';
 import { useQuote } from '../../hooks/useQuote';
 import { useClock } from '../../hooks/useClock';
 import { useBackground } from '../../hooks/useBackground';
-
+import { useGoogleFont, getQuoteFontFamily } from '../../hooks/useGoogleFont';
 import { Background } from '../../components/Background';
 import { Clock } from '../../components/Clock';
 import { Quote } from '../../components/Quote';
@@ -17,6 +17,8 @@ export default function App() {
   const { quote, loading: quoteLoading } = useQuote(settings);
   const { formatted, dateStr } = useClock(settings.clockFormat);
   const { bgUrl, photoInfo } = useBackground();
+  useGoogleFont(settings.quoteFont);
+  const quoteFontFamily = getQuoteFontFamily(settings.quoteFont);
   const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
@@ -46,6 +48,8 @@ export default function App() {
         <Quote
           quote={quote}
           loading={quoteLoading}
+          fontFamily={quoteFontFamily}
+          fontSize={settings.quoteFontSize}
         />
       </div>
 

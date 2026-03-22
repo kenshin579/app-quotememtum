@@ -1,4 +1,5 @@
-import type { UserSettings, ClockFormat, QuoteMode, Language } from '../../types/settings';
+import type { UserSettings, ClockFormat, QuoteMode, Language, QuoteFont } from '../../types/settings';
+import { QUOTE_FONTS } from '../../types/settings';
 
 interface GeneralSettingsProps {
   settings: UserSettings;
@@ -45,6 +46,36 @@ export function GeneralSettings({ settings, onUpdate }: GeneralSettingsProps) {
             className="w-16 rounded bg-gray-700 px-2 py-1.5 text-center text-sm text-white [&::-webkit-inner-spin-button]:appearance-auto [&::-webkit-outer-spin-button]:appearance-auto"
           />
           <span className="text-sm text-gray-400">시간</span>
+        </div>
+      </SettingRow>
+
+      <SettingRow label="명언 폰트">
+        <select
+          value={settings.quoteFont}
+          onChange={(e) => onUpdate({ quoteFont: e.target.value as QuoteFont })}
+          className="rounded bg-gray-700 px-3 py-1.5 text-sm text-white"
+        >
+          {QUOTE_FONTS.map((f) => (
+            <option key={f.value} value={f.value}>{f.label}</option>
+          ))}
+        </select>
+      </SettingRow>
+
+      <SettingRow label="명언 글자 크기">
+        <div className="flex items-center gap-2">
+          <input
+            type="number"
+            min={16}
+            max={64}
+            step={2}
+            value={settings.quoteFontSize}
+            onChange={(e) => {
+              const v = Math.min(64, Math.max(16, Number(e.target.value) || 36));
+              onUpdate({ quoteFontSize: v });
+            }}
+            className="w-16 rounded bg-gray-700 px-2 py-1.5 text-center text-sm text-white [&::-webkit-inner-spin-button]:appearance-auto [&::-webkit-outer-spin-button]:appearance-auto"
+          />
+          <span className="text-sm text-gray-400">px</span>
         </div>
       </SettingRow>
 
