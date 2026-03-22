@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import type { UserSettings, ClockFormat, QuoteMode, Language, QuoteFont } from '../../types/settings';
 import { QUOTE_FONTS } from '../../types/settings';
 
@@ -32,21 +33,15 @@ export function GeneralSettings({ settings, onUpdate }: GeneralSettingsProps) {
       </SettingRow>
 
       <SettingRow label="명언 갱신 주기">
-        <div className="flex items-center gap-2">
-          <input
-            type="number"
-            min={1}
-            max={24}
-            step={1}
-            value={settings.quoteFrequency}
-            onChange={(e) => {
-              const v = Math.min(24, Math.max(1, Number(e.target.value) || 1));
-              onUpdate({ quoteFrequency: v });
-            }}
-            className="w-16 rounded bg-gray-700 px-2 py-1.5 text-center text-sm text-white [&::-webkit-inner-spin-button]:appearance-auto [&::-webkit-outer-spin-button]:appearance-auto"
-          />
-          <span className="text-sm text-gray-400">시간</span>
-        </div>
+        <NumberInput
+          value={settings.quoteFrequency}
+          min={1}
+          max={24}
+          step={1}
+          fallback={1}
+          unit="시간"
+          onChange={(v) => onUpdate({ quoteFrequency: v })}
+        />
       </SettingRow>
 
       <SettingRow label="명언 폰트">
@@ -62,21 +57,15 @@ export function GeneralSettings({ settings, onUpdate }: GeneralSettingsProps) {
       </SettingRow>
 
       <SettingRow label="명언 글자 크기">
-        <div className="flex items-center gap-2">
-          <input
-            type="number"
-            min={16}
-            max={64}
-            step={2}
-            value={settings.quoteFontSize}
-            onChange={(e) => {
-              const v = Math.min(64, Math.max(16, Number(e.target.value) || 36));
-              onUpdate({ quoteFontSize: v });
-            }}
-            className="w-16 rounded bg-gray-700 px-2 py-1.5 text-center text-sm text-white [&::-webkit-inner-spin-button]:appearance-auto [&::-webkit-outer-spin-button]:appearance-auto"
-          />
-          <span className="text-sm text-gray-400">px</span>
-        </div>
+        <NumberInput
+          value={settings.quoteFontSize}
+          min={16}
+          max={64}
+          step={2}
+          fallback={36}
+          unit="px"
+          onChange={(v) => onUpdate({ quoteFontSize: v })}
+        />
       </SettingRow>
 
       <SettingRow label="언어">
@@ -104,6 +93,57 @@ export function GeneralSettings({ settings, onUpdate }: GeneralSettingsProps) {
           />
         </button>
       </SettingRow>
+    </div>
+  );
+}
+
+function NumberInput({
+  value,
+  min,
+  max,
+  step,
+  fallback,
+  unit,
+  onChange,
+}: {
+  value: number;
+  min: number;
+  max: number;
+  step: number;
+  fallback: number;
+  unit: string;
+  onChange: (v: number) => void;
+}) {
+  const [draft, setDraft] = useState(String(value));
+
+  useEffect(() => {
+    setDraft(String(value));
+  }, [value]);
+
+  return (
+    <div className="flex items-center gap-2">
+      <input
+        type="number"
+        min={min}
+        max={max}
+        step={step}
+        value={draft}
+        onChange={(e) => {
+          setDraft(e.target.value);
+          const n = Number(e.target.value);
+          if (!isNaN(n) && n >= min && n <= max) {
+            onChange(n);
+          }
+        }}
+        onBlur={() => {
+          const n = Number(draft);
+          const clamped = isNaN(n) ? fallback : Math.min(max, Math.max(min, n));
+          setDraft(String(clamped));
+          onChange(clamped);
+        }}
+        className="w-16 rounded bg-gray-700 px-2 py-1.5 text-center text-sm text-white [&::-webkit-inner-spin-button]:appearance-auto [&::-webkit-outer-spin-button]:appearance-auto"
+      />
+      <span className="text-sm text-gray-400">{unit}</span>
     </div>
   );
 }
