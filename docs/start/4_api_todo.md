@@ -23,8 +23,8 @@
 
 ## Phase 4: 파일 정리
 
-- [ ] `src/components/settings/ApiKeySettings.tsx` — 파일 삭제
-- [ ] `src/components/AuthorInfo.tsx` — 파일 삭제 (Widget API에 authorInfo 없음)
+- [x] `src/components/settings/ApiKeySettings.tsx` — 파일 삭제
+- [x] `src/components/AuthorInfo.tsx` — 파일 삭제 (Widget API에 authorInfo 없음)
 
 ## Phase 5: 빌드 및 테스트
 
