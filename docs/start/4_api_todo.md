@@ -9,9 +9,9 @@
 
 ## Phase 2: 훅 및 스토리지
 
-- [ ] `src/hooks/useQuote.ts` — API Key 로직 제거, 항상 API 호출, 401 에러 분기 제거
-- [ ] `src/lib/storage.ts` — `syncStorage` 객체 전체 제거
-- [ ] `src/types/settings.ts` — `QuoteFrequency` 타입 `2|6|12` → `number`, `UserSettings.quoteFrequency: number`
+- [x] `src/hooks/useQuote.ts` — API Key 로직 제거, 항상 API 호출, 401 에러 분기 제거
+- [x] `src/lib/storage.ts` — `syncStorage` 객체 전체 제거
+- [x] `src/types/settings.ts` — `QuoteFrequency` 타입 `2|6|12` → `number`, `UserSettings.quoteFrequency: number`
 
 ## Phase 3: UI 변경
 

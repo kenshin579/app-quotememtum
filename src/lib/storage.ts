@@ -18,18 +18,3 @@ export const storage = {
     await chrome.storage.local.remove(prefixKey(name));
   },
 };
-
-export const syncStorage = {
-  async getApiKey(): Promise<string | null> {
-    const result = await chrome.storage.sync.get(prefixKey('apiKey'));
-    return (result[prefixKey('apiKey')] as string) ?? null;
-  },
-
-  async setApiKey(apiKey: string): Promise<void> {
-    await chrome.storage.sync.set({ [prefixKey('apiKey')]: apiKey });
-  },
-
-  async removeApiKey(): Promise<void> {
-    await chrome.storage.sync.remove(prefixKey('apiKey'));
-  },
-};

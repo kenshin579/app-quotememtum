@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { storage, syncStorage } from '../lib/storage';
+import { storage } from '../lib/storage';
 import { fetchQuoteOfTheDay, fetchRandomQuote, ApiError } from '../lib/inspireme-api';
 import type { Quote } from '../types/quote';
 import type { UserSettings } from '../types/settings';
@@ -37,29 +37,18 @@ export function useQuote(settings: UserSettings) {
     }
 
     try {
-      const apiKey = await syncStorage.getApiKey();
-      if (!apiKey) {
-        loadFallbackQuote();
-        setLoading(false);
-        return;
-      }
-
       let newQuote: Quote;
       if (settings.quoteMode === 'qotd') {
-        newQuote = await fetchQuoteOfTheDay(apiKey, settings.language);
+        newQuote = await fetchQuoteOfTheDay(settings.language);
       } else {
-        newQuote = await fetchRandomQuote(apiKey, settings.language);
+        newQuote = await fetchRandomQuote(settings.language);
       }
 
       setQuote(newQuote);
       await storage.set<CachedQuote>('quote', { quote: newQuote, timestamp: Date.now() });
     } catch (err) {
-      if (err instanceof ApiError) {
-        if (err.status === 401) {
-          setError('API Key가 유효하지 않습니다. 설정에서 확인해 주세요.');
-        } else if (err.status === 429) {
-          setError('요청 한도를 초과했습니다. 잠시 후 다시 시도해 주세요.');
-        }
+      if (err instanceof ApiError && err.status === 429) {
+        setError('요청 한도를 초과했습니다. 잠시 후 다시 시도해 주세요.');
       }
       loadFallbackQuote();
     } finally {
