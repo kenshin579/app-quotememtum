@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { storage } from '../lib/storage';
-import { fetchRandomPhoto, type UnsplashPhoto } from '../lib/unsplash-api';
+import { fetchRandomPhoto, buildHighQualityUrl, type UnsplashPhoto } from '../lib/unsplash-api';
 import defaultBgUrl from '../assets/default-bg.jpg';
 
 interface CachedWallpaper {
@@ -13,6 +13,15 @@ const CACHE_HOURS = 24;
 
 function isExpired(timestamp: number): boolean {
   return Date.now() - timestamp > CACHE_HOURS * 60 * 60 * 1000;
+}
+
+function preloadImage(url: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve();
+    img.onerror = reject;
+    img.src = url;
+  });
 }
 
 export function useBackground() {
@@ -33,10 +42,12 @@ export function useBackground() {
 
     try {
       const photo = await fetchRandomPhoto();
-      setBgUrl(photo.urls.regular);
+      const hqUrl = buildHighQualityUrl(photo.urls.raw);
+      await preloadImage(hqUrl);
+      setBgUrl(hqUrl);
       setPhotoInfo(photo);
       await storage.set<CachedWallpaper>('wallpaper', {
-        url: photo.urls.regular,
+        url: hqUrl,
         photo,
         timestamp: Date.now(),
       });

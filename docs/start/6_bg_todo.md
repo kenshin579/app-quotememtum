@@ -10,10 +10,10 @@
 
 ## Phase 2: useBackground 훅 수정
 
-- [ ] `src/hooks/useBackground.ts` — `buildHighQualityUrl` import 추가
-- [ ] `src/hooks/useBackground.ts` — `preloadImage()` 프리로딩 함수 추가
-- [ ] `src/hooks/useBackground.ts` — `setBgUrl(photo.urls.regular)` → `buildHighQualityUrl(photo.urls.raw)` + 프리로딩 적용
-- [ ] `src/hooks/useBackground.ts` — 캐시 저장 URL도 동일하게 변경
+- [x] `src/hooks/useBackground.ts` — `buildHighQualityUrl` import 추가
+- [x] `src/hooks/useBackground.ts` — `preloadImage()` 프리로딩 함수 추가
+- [x] `src/hooks/useBackground.ts` — `setBgUrl(photo.urls.regular)` → `buildHighQualityUrl(photo.urls.raw)` + 프리로딩 적용
+- [x] `src/hooks/useBackground.ts` — 캐시 저장 URL도 동일하게 변경
 
 ## Phase 3: 테스트 및 검증
 
