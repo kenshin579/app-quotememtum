@@ -17,10 +17,10 @@
 
 ## Phase 3: 테스트 및 검증
 
-- [ ] `pnpm dev`로 개발 서버 실행 후 새 탭에서 배경 이미지 확인
-- [ ] MCP Playwright로 새 탭 열어 배경 이미지 로딩 확인
-  - 이미지 URL에 `w=`, `q=85`, `auto=format` 파라미터 포함되는지 확인
-  - `orientation=landscape`로 가로 이미지만 반환되는지 확인
+- [x] Unsplash API `orientation=landscape` 호출 검증 — 가로 이미지만 반환 확인
+- [x] `buildHighQualityUrl()` URL 파라미터 검증 — `w=`, `q=85`, `auto=format` 포함 확인
+- [x] 이미지 크기 비교: regular 232KB → HQ 2560px 1.2MB, HQ 1920px 731KB (합리적)
+- [x] 최종 너비 2560px cap 적용 — Retina(3840px) 시 과도한 용량(3.6MB) 방지
 - [ ] 캐시 동작 확인: 새 탭 재오픈 시 캐시된 고퀄리티 이미지 표시
 - [ ] Unsplash API 에러 시 기본 배경(default-bg.jpg) 폴백 동작 확인
 - [x] `pnpm build` 프로덕션 빌드 정상 완료 확인

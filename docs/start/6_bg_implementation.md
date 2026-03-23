@@ -40,10 +40,11 @@ const params = new URLSearchParams({
 
 ```typescript
 export function buildHighQualityUrl(rawUrl: string, width?: number): string {
-  const w = width ?? Math.min(window.screen.width, 2560);
+  const screenW = width ?? window.screen.width;
   const dpr = Math.min(window.devicePixelRatio ?? 1, 2);
+  const finalW = Math.min(Math.round(screenW * dpr), 2560);
   const params = new URLSearchParams({
-    w: String(Math.round(w * dpr)),
+    w: String(finalW),
     q: '85',
     fm: 'jpg',
     fit: 'max',
@@ -55,7 +56,7 @@ export function buildHighQualityUrl(rawUrl: string, width?: number): string {
 
 | 파라미터 | 설명 |
 |----------|------|
-| `w` | `screen.width × dpr` (최대 2560px 기준, dpr 최대 2x) |
+| `w` | `min(screen.width × dpr, 2560)` — 최종 너비가 2560px을 초과하지 않도록 cap |
 | `q=85` | 품질 85% — 시각적 차이 없이 용량 절약 |
 | `fit=max` | 원본 비율 유지 리사이즈 |
 | `auto=format` | WebP 지원 브라우저에서 자동 전환 (~30% 절감) |

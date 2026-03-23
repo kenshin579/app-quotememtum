@@ -23,10 +23,11 @@ export async function fetchRandomPhoto(): Promise<UnsplashPhoto> {
 }
 
 export function buildHighQualityUrl(rawUrl: string, width?: number): string {
-  const w = width ?? Math.min(window.screen.width, 2560);
+  const screenW = width ?? window.screen.width;
   const dpr = Math.min(window.devicePixelRatio ?? 1, 2);
+  const finalW = Math.min(Math.round(screenW * dpr), 2560);
   const params = new URLSearchParams({
-    w: String(Math.round(w * dpr)),
+    w: String(finalW),
     q: '85',
     fm: 'jpg',
     fit: 'max',
