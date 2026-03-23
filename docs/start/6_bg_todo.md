@@ -23,5 +23,5 @@
   - `orientation=landscape`로 가로 이미지만 반환되는지 확인
 - [ ] 캐시 동작 확인: 새 탭 재오픈 시 캐시된 고퀄리티 이미지 표시
 - [ ] Unsplash API 에러 시 기본 배경(default-bg.jpg) 폴백 동작 확인
-- [ ] `pnpm build` 프로덕션 빌드 정상 완료 확인
-- [ ] `pnpm lint` 린트 통과 확인
+- [x] `pnpm build` 프로덕션 빌드 정상 완료 확인
+- [x] `pnpm lint` 린트 통과 확인
