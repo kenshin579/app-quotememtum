@@ -40,7 +40,7 @@ export function Quote({ quote, loading, fontFamily, fontSize = 36 }: QuoteProps)
   );
 
   return (
-    <div className="text-center animate-fade-in">
+    <div key={quote.id || quote.content} className="text-center animate-fade-in">
       {hasLink ? (
         <a href={quoteUrl} className="cursor-pointer hover:opacity-80 transition-opacity">
           {quoteContent}
