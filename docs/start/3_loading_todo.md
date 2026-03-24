@@ -12,7 +12,7 @@
 
 ## 2단계: Settings 블로킹 제거 (방안 B) — P0
 
-- [ ] `src/entrypoints/newtab/App.tsx` — `if (!loaded) return null` 라인 삭제
+- [x] `src/entrypoints/newtab/App.tsx` — `if (!loaded) return null` 라인 삭제
 
 ## 3단계: API 타임아웃 (방안 C) — P1
 

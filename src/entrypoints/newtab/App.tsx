@@ -13,7 +13,7 @@ import { SettingsModal } from '../../components/settings/SettingsModal';
 import { trackPageView } from '../../lib/analytics';
 
 export default function App() {
-  const { settings, updateSettings, loaded } = useSettings();
+  const { settings, updateSettings } = useSettings();
   const { quote, loading: quoteLoading } = useQuote(settings);
   const { formatted, dateStr } = useClock(settings.clockFormat);
   const { bgUrl, photoInfo } = useBackground();
@@ -32,8 +32,6 @@ export default function App() {
       document.documentElement.classList.remove('dark');
     }
   }, [settings.darkMode]);
-
-  if (!loaded) return null;
 
   return (
     <main className="relative flex h-screen flex-col justify-between text-white animate-fade-in">
