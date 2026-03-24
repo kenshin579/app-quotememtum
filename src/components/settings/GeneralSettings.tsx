@@ -32,17 +32,19 @@ export function GeneralSettings({ settings, onUpdate }: GeneralSettingsProps) {
         </select>
       </SettingRow>
 
-      <SettingRow label="명언 갱신 주기">
-        <NumberInput
-          value={settings.quoteFrequency}
-          min={1}
-          max={24}
-          step={1}
-          fallback={1}
-          unit="시간"
-          onChange={(v) => onUpdate({ quoteFrequency: v })}
-        />
-      </SettingRow>
+      {settings.quoteMode === 'random' && (
+        <SettingRow label="명언 갱신 주기">
+          <NumberInput
+            value={settings.quoteFrequency}
+            min={1}
+            max={24}
+            step={1}
+            fallback={1}
+            unit="시간"
+            onChange={(v) => onUpdate({ quoteFrequency: v })}
+          />
+        </SettingRow>
+      )}
 
       <SettingRow label="명언 폰트">
         <select
