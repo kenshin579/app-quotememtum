@@ -30,8 +30,8 @@
 
 ## 5단계: 빌드 및 테스트
 
-- [ ] `pnpm build` 빌드 성공 확인
-- [ ] `pnpm lint` 린트 통과 확인
+- [x] `pnpm build` 빌드 성공 확인
+- [x] `pnpm lint` 린트 통과 확인 (기존 lint 에러 2개는 변경 전부터 존재, 신규 에러 없음)
 - [ ] MCP Playwright로 수동 테스트 (Backend + Frontend 실행 필요)
   - [ ] 새 탭 열기 → 명언이 즉시 표시되는지 확인 (skeleton 없이)
   - [ ] 새 탭 열기 → 배경이 즉시 표시되는지 확인
