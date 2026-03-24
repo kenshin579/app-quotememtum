@@ -16,10 +16,10 @@
 
 ## 3단계: API 타임아웃 (방안 C) — P1
 
-- [ ] `src/lib/inspireme-api.ts` — AbortController 기반 타임아웃 추가
-  - [ ] `API_TIMEOUT_MS = 5000` 상수 추가
-  - [ ] `apiFetch` 함수에 `AbortController` + `setTimeout` 적용
-  - [ ] `finally` 블록에서 `clearTimeout` 처리
+- [x] `src/lib/inspireme-api.ts` — AbortController 기반 타임아웃 추가
+  - [x] `API_TIMEOUT_MS = 5000` 상수 추가
+  - [x] `apiFetch` 함수에 `AbortController` + `setTimeout` 적용
+  - [x] `finally` 블록에서 `clearTimeout` 처리
 
 ## 4단계: 배경 점진적 표시 (방안 D) — P2
 
