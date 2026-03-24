@@ -40,6 +40,15 @@ export function useBackground() {
       return;
     }
 
+    // stale 캐시가 있으면 먼저 표시, 없으면 기본 배경 (SWR)
+    if (cached) {
+      setBgUrl(cached.url);
+      setPhotoInfo(cached.photo);
+    } else {
+      setBgUrl(defaultBgUrl);
+    }
+    setLoading(false);
+
     try {
       const photo = await fetchRandomPhoto();
       const hqUrl = buildHighQualityUrl(photo.urls.raw);
@@ -52,9 +61,7 @@ export function useBackground() {
         timestamp: Date.now(),
       });
     } catch {
-      setBgUrl(defaultBgUrl);
-    } finally {
-      setLoading(false);
+      // stale/기본 배경이 이미 표시 중
     }
   }, []);
 

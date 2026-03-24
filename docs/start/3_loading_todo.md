@@ -23,10 +23,10 @@
 
 ## 4단계: 배경 점진적 표시 (방안 D) — P2
 
-- [ ] `src/hooks/useBackground.ts` — SWR 패턴 적용
-  - [ ] 캐시 만료 시 stale URL 즉시 표시
-  - [ ] 최초 설치 시 `defaultBgUrl` 즉시 표시
-  - [ ] 백그라운드에서 Unsplash API + preload 후 교체
+- [x] `src/hooks/useBackground.ts` — SWR 패턴 적용
+  - [x] 캐시 만료 시 stale URL 즉시 표시
+  - [x] 최초 설치 시 `defaultBgUrl` 즉시 표시
+  - [x] 백그라운드에서 Unsplash API + preload 후 교체
 
 ## 5단계: 빌드 및 테스트
 
