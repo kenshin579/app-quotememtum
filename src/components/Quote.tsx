@@ -34,7 +34,7 @@ export function Quote({ quote, loading, fontFamily, fontSize = 36 }: QuoteProps)
   };
 
   const quoteContent = (
-    <p className="font-light drop-shadow-lg max-w-3xl" style={quoteStyle}>
+    <p className="font-light drop-shadow-lg max-w-3xl break-keep" style={quoteStyle}>
       &ldquo;{quote.content}&rdquo;
     </p>
   );
@@ -49,7 +49,7 @@ export function Quote({ quote, loading, fontFamily, fontSize = 36 }: QuoteProps)
         quoteContent
       )}
 
-      <p className="mt-4 text-xl text-white/80 drop-shadow-md" style={{ fontFamily: fontFamily || undefined }}>
+      <p className="mt-4 text-xl text-white/80 drop-shadow-md break-keep" style={{ fontFamily: fontFamily || undefined }}>
         —{' '}
         {authorUrl ? (
           <a href={authorUrl} className="hover:underline">{quote.author}</a>
