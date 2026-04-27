@@ -12,11 +12,12 @@
 
 ## Phase 3: 테스트 및 검증 (MCP Playwright)
 
-- [ ] `pnpm dev`로 개발 서버 실행 후 Chrome에 Extension 로드
-- [ ] MCP Playwright로 새 탭(`chrome://newtab`) 진입 — 긴 한국어 명언이 표시되는 케이스 재현
-- [ ] MCP Playwright `playwright_screenshot`으로 스크린샷 저장 — 어절(`다름을`, `남과`, `다르고`, `누군가를`, `것이다`)이 한 줄 안에 보존되는지 시각 확인
-- [ ] MCP Playwright `playwright_evaluate`로 명언 `<p>` 요소의 `getComputedStyle(el).wordBreak === 'keep-all'` 검증
-- [ ] 다양한 뷰포트 크기(1920×1080, 1280×720, 800×600)에서 줄바꿈 동작 확인 — 어절 분리 없음 보장
-- [ ] 짧은 명언(한 줄)도 정상 표시되는지 회귀 확인
-- [ ] 영문 명언이 있다면 단어 단위로 정상 줄바꿈되는지 확인 (`break-keep`이 영문 단어 보존에도 영향 없는지)
-- [ ] 로딩 스켈레톤 정상 표시 회귀 확인
+- [x] `pnpm build` 산출물(`.output/chrome-mv3/`)을 HTTP 서버로 띄워 동일 CSS로 격리 테스트 페이지 구성 (Chrome Extension `chrome://newtab` 직접 로드는 unpacked 권한 필요로 우회)
+- [x] chrome-devtools MCP로 테스트 페이지 진입 — 긴 한국어 명언 재현 (Playwright 브라우저 미설치로 chrome-devtools MCP 사용)
+- [x] 스크린샷 저장 — `/tmp/word-break-after.png`(적용 후), `/tmp/word-break-before.png`(미적용 비교)
+- [x] `getComputedStyle(el).wordBreak === 'keep-all'` 검증 통과 (본문·저자 모두)
+- [x] Before/After 어절 비교: Before(`word-break: normal`) 5줄 중 `인정해도`, `괜찮다는` 어절 분리 확인 → After(`break-keep`) 동일 콘텐츠에서 모든 어절(`다름을`, `남과`, `다르고`, `누군가를`, `것이다` 포함) 보존
+- [x] 다중 뷰포트(800×600, 1280×900, 1920×1080) 동작 확인 — 모두 어절 분리 0건
+- [x] 짧은 명언("짧은 명언.") 1줄 표시, 어절 보존 정상
+- [x] 긴 영문 명언 단어 단위 줄바꿈 정상 (`break-keep`이 영문 동작에 부정적 영향 없음)
+- [x] 로딩 스켈레톤은 텍스트 미포함 placeholder이므로 영향 없음 (코드 변경 범위 외)
