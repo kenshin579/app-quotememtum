@@ -1,4 +1,6 @@
 export function About() {
+  const version = chrome.runtime.getManifest().version;
+
   return (
     <div className="space-y-4 text-sm text-gray-300">
       <div>
@@ -7,7 +9,7 @@ export function About() {
       </div>
 
       <div>
-        <p>Version 2.0.0</p>
+        <p>Version {version}</p>
       </div>
 
       <div className="space-y-1">
