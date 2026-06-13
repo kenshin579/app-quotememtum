@@ -11,12 +11,6 @@ interface CachedQuote {
   quoteMode: QuoteMode;
 }
 
-function isDayChanged(timestamp: number): boolean {
-  const cached = new Date(timestamp);
-  const now = new Date();
-  return cached.toDateString() !== now.toDateString();
-}
-
 export function useQuote(settings: UserSettings) {
   const [quote, setQuote] = useState<Quote | null>(null);
   const [loading, setLoading] = useState(true);
@@ -34,21 +28,9 @@ export function useQuote(settings: UserSettings) {
     const cached = await storage.get<CachedQuote>('quote');
     const modeChanged = cached?.quoteMode !== settings.quoteMode;
 
-    // 1) 캐시 유효 판정 — 모드별 분기
-    if (cached && !modeChanged) {
-      if (settings.quoteMode === 'qotd') {
-        // 오늘의 명언: 같은 날이면 캐시 표시 후 종료 (quoteFrequency 무시)
-        if (!isDayChanged(cached.timestamp)) {
-          setQuote(cached.quote);
-          setLoading(false);
-          return;
-        }
-      }
-      // 랜덤 명언: early return 없음 → 항상 SWR 진행
-    }
-
-    // 2) stale 데이터 또는 fallback을 즉시 표시 (SWR)
+    // 1) stale 데이터 또는 fallback을 즉시 표시 (SWR)
     //    - 모드 전환 시: 이전 모드 캐시 대신 fallback 사용
+    //    - 날짜 비교 대신 항상 백그라운드 API 호출로 최신 명언 감지 (타임존 의존 제거)
     if (cached && !modeChanged) {
       setQuote(cached.quote);
     } else {
@@ -56,7 +38,7 @@ export function useQuote(settings: UserSettings) {
     }
     setLoading(false);
 
-    // 3) 백그라운드 API 호출 → 응답 시 교체
+    // 2) 백그라운드 API 호출 → 응답 시 교체 (값이 같으면 React가 리렌더 생략)
     try {
       let newQuote: Quote;
       if (settings.quoteMode === 'qotd') {
